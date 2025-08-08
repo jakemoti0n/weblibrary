@@ -1,0 +1,11 @@
+
+
+.reviewHead {
+    color: aqua;
+    text-align: center;
+};
+
+.MuiDataGrid-columnHeaders {
+  background-color: #2eb877 !important;
+  color: rgb(206, 43, 43) !important;
+}
