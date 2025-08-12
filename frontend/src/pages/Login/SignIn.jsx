@@ -26,8 +26,24 @@ export default function SignIn() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // 로그인 API 호출
-  };
+//     try {
+//     const res = await axios.post(
+//       "/api/auth/login", // Spring Security에서 처리
+//       {
+//         username: values.id,
+//         password: values.pw,
+//       },
+//       {
+//         withCredentials: true, // 세션 쿠키 유지용 (중요)
+//       }
+//     );
+
+//     alert("로그인 성공!");
+//     navigate("/"); // 홈이나 마이페이지 등 이동
+//   } catch (err) {
+//     alert("로그인 실패: " + (err.response?.data || err.message));
+//   }
+ };
 
   const inputStyle = {
     bgcolor: "#f1f3f5",

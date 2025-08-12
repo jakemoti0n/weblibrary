@@ -1,11 +1,11 @@
-import React from 'react'
+import axios from "axios";
 
-const api = () => {
-  return (
-    <div>api -axious 사용 백엔드 baseurl -8070 그다음에
-      
-       프론트- 알라딘데이터 사용할거면 훅만들어서 사용하기 훅에서 api import  </div>
-  )
-}
+const api = axios.create({
+  baseURL: "http://localhost:8070",
+  withCredentials: true,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
 
-export default api
+export default api;

@@ -1,4 +1,3 @@
-// src/pages/Login/SignUp.jsx
 import React, { useState, useMemo } from "react";
 import {
   Box,
@@ -8,13 +7,16 @@ import {
   Stack,
   IconButton,
   InputAdornment,
-  Link, // MUI Link (스타일용)
+  Link
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { Link as RouterLink } from "react-router-dom";
 import logo from "../../assets/booky.png";
+import useSignUp from "../../hooks/useSignUp";
+
 
 export default function SignUp() {
+  const { mutate: signUp } = useSignUp();
   const [form, setForm] = useState({
     id: "",
     email: "",
@@ -46,8 +48,16 @@ export default function SignUp() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!canSubmit) return;
-    // 회원가입 API 호출
+
+  const payload = {
+    username: form.id,
+    password: form.pw,
+    email: form.email,
   };
+
+  // 회원가입 API 호출
+  signUp(payload);
+};
 
   return (
     <Box
