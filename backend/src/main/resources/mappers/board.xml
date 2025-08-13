@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.backend.dao.BoardRepository">
+
+    <select id="getBoardCount" parameterType="int" resultType="int">
+		SELECT COUNT(*) FROM BOARD
+		<if test="userId != null">
+			 WHERE USER_ID = #{userId}
+		</if>
+	</select>
+	
+	<select id="getBoardList" resultType="com.example.backend.model.Board">
+		SELECT 
+            board_id AS boardId,
+            book_name AS bookName,
+            title,
+            user_name AS userName,
+            book_score AS bookScore
+        FROM BOARD
+        ORDER BY board_id desc
+	</select>
+	
+	<select id="getBoardDetail" parameterType="int" resultType="com.example.backend.model.Board">
+		SELECT 	USER_name AS userName,
+				board_content 	AS 	boardContent,
+				title 	AS 	title
+		FROM DEPT WHERE board_id = #{boardId}
+	</select>
+
+	<update id="updateBoard" parameterType="com.example.backend.model.Board">
+		UPDATE BOARD
+		SET title=#{title}, board_content=#{boardContent}
+		WHERE board_id = #{boardId}
+	</update>
+	
+	<insert id="insertBoard" parameterType="com.example.backend.model.Board">
+		INSERT INTO BOARD ( BOARD_ID, USER_ID, TITLE, BOARD_CONTENT, BOOK_SCORE, CRATED_AT, BOOK_NAME, USER_NAME )
+		VALUES ( #{boardID}, #{userId}, #{title}, #{boardContent}, #{bookScore}, #{createdAt}, #{bookName}, #{userName})
+	</insert>
+	
+	<delete id="deleteBoard" parameterType="com.example.backend.model.Board">
+		DELETE FROM BOARD 
+		WHERE BOARD_ID=#{boardId}
+	</delete>
+</mapper>

@@ -1,6 +1,8 @@
 
 
 .reviewHead {
-    color: aquamarine;
+    color: #FFD700;
     text-align: center;
+    font-family: 'KyoboHand', sans-serif;
+    font-weight: bold;
 };
