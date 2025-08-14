@@ -111,7 +111,7 @@ export default function BoardWrite() {
 
              <Box
       sx={{
-        position: 'sticky',           // 스크롤해도 하단에 고정하고 싶으면 유지
+        //position: 'sticky',           // 스크롤해도 하단에 고정하고 싶으면 유지
         bottom: 0,
         bgcolor: 'background.paper',
         py: 1.5,

@@ -55,7 +55,20 @@ export default function Board() {
   const columns = [
     { field: 'id', headerName: 'ID', flex: 0.5, minWidth: 80, headerClassName: 'header-blue', align: 'center', headerAlign: 'center' },
     { field: 'bookName', headerName: '도서정보', flex: 1.2, minWidth: 220, headerClassName: 'header-blue', headerAlign: 'center' },
-    { field: 'title', headerName: '제목', flex: 3, minWidth: 400, headerClassName: 'header-blue', headerAlign: 'center' },
+    { field: 'title', headerName: '제목', flex: 3, minWidth: 400, headerClassName: 'header-blue', headerAlign: 'center', 
+      renderCell: (params) => (
+      <Link
+        to={`/board/${params.row.id}`}           
+        onClick={(e) => e.stopPropagation()}
+        style={{ textDecoration: 'none', cursor: 'hild', display: 'block', width: '100%' , color: 'black'}}
+    >  
+      <span style={{ display: 'block', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+      {params.value ?? '(제목 없음)'}
+    </span>
+      </Link>
+    )
+      
+    },
     { field: 'userName', headerName: '작성자', flex: 1, minWidth: 140, headerClassName: 'header-blue', align: 'center', headerAlign: 'center'},
     { field: 'bookScore', headerName: '평점', flex: 0.6, minWidth: 100, headerClassName: 'header-blue', align: 'center', headerAlign: 'center'},
   ];
@@ -109,6 +122,7 @@ export default function Board() {
         <DataGrid
           rows={rows}
           columns={columns}
+          disableRowSelectionOnClick    // ← 링크 클릭 시 체크박스/선택 변화 방지
           pagination
           paginationModel={paginationModel}
           onPaginationModelChange={setPaginationModel}
@@ -125,7 +139,7 @@ export default function Board() {
               color: "#333",
               fontWeight: "bold",
               fontFamily: "'KyoboHand', sans-serif",
-              fontSize: 18
+              fontSize: 25
             },
             "& .MuiDataGrid-footerContainer": {
               justifyContent: "center" // ★ CHANGED: 중앙 정렬(보조용, CustomPagination 래퍼와 함께 사용)
@@ -137,7 +151,7 @@ export default function Board() {
       {/* 하단 검색/글쓰기 바 - 컨테이너 하단 sticky */}
       <Box
         sx={{
-          position: "sticky",       // ★ CHANGED
+          //position: "sticky",       
           bottom: 0,                // ★ CHANGED
           bgcolor: "background.paper",
           py: 1.5,

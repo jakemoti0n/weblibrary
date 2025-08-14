@@ -10,6 +10,7 @@ export default function Navbar() {
         
         <div className="nav-left">
         <button onClick={() => navigate('/login')}>로그인</button>
+        <button onClick={() => navigate('/board')}>게시판</button>
         </div>
 
         <div className="nav-center">

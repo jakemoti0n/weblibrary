@@ -27,7 +27,7 @@ function App() {
           {/* 책 관련 라우트 */}
           <Route path="books">
             <Route index element={<BookListpage />} />
-            <Route path=":id" element={<BookDetail />} />
+            <Route path="id:" element={<BookDetail />} />
           </Route>
          
           {/* 게시판 관련 라우트 */}
