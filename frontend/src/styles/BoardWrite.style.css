@@ -1,0 +1,50 @@
+.write-container {
+  padding-top: 16px;
+  padding-bottom: 24px;
+}
+
+.write-paper {
+  padding: 20px;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+}
+
+.write-title {
+  font-weight: bold;
+  color: #FFD700;
+  text-align: center;
+}
+
+.form-row { margin-bottom: 16px; }
+/* 
+.field-label {
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 30px;
+  color: rgba(1, 5, 0, 0.7);
+  font-family: 'KyoboHand', sans-serif;
+
+  
+} */
+
+.css-rizt0-MuiTypography-root{
+  font-size: 15rem;
+}
+
+.dfdfdfdf{
+  font-size: 10000px;
+  color: aqua;
+}
+/* 플레이스홀더(불투명 글씨) */
+.title-input .MuiInputBase-input::placeholder,
+.content-input .MuiInputBase-input::placeholder {
+  opacity: 1;
+  color: rgba(0,0,0,0.38);
+}
+
+/* 내용 가독성 */
+.content-input .MuiInputBase-input {
+  line-height: 1.75;
+}
+
+.action-bar { margin-top: 24px; }

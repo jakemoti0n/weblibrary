@@ -11,7 +11,7 @@ public class Board {
     private String bookName;
     private String title;
     private String userName;
-    private String bookScore;
+    private double bookScore;
     private int userId;
     private Date createdAt;
     private String boardContent;
