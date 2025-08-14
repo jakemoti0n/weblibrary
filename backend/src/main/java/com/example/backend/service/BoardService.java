@@ -6,14 +6,14 @@ import com.example.backend.model.Board;
 
 public interface BoardService {
     int getBoardCount();
-    int getBoardCount(int userid);
+    int getBoardCount(int userId);
 
     List<Board> getBoardList();
-    Board getBoardDetail(int boardid);
+    Board getBoardDetail(int boardId);
 
     
     void insertBoard(Board board);
     void updateBoard(Board board);
-	int deleteBoard(int userid);
+	int deleteBoard(int boardId);
 
 }

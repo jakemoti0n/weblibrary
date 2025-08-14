@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.backend.model.Board;
 import com.example.backend.service.BasicBoardService;
-import com.example.backend.service.BoardService;
 
 import java.util.List;
 
@@ -45,10 +44,10 @@ public class BoardAPIController {
     }
 
     // mapper의 getBoardDetail이 userId를 파라미터로 받으므로 그대로 맞춤
-    @GetMapping("/detail")
-    public ResponseEntity<Board> getBoardDetail(@RequestParam int userId) {
-        Board detail = boardService.getBoardDetail(userId);
-        if (detail == null) return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    @GetMapping("/{boardId}")
+    public ResponseEntity<Board> getBoardDetail(@PathVariable int boardId) {
+        Board detail = boardService.getBoardDetail(boardId);
+        if (detail == null) return ResponseEntity.notFound().build();
         return ResponseEntity.status(HttpStatus.OK).body(detail);
     }
 
@@ -65,10 +64,9 @@ public class BoardAPIController {
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
-    // mapper의 deleteBoard가 USER_ID 기준이므로 경로도 userId로 맞춤
-    @DeleteMapping("/user/{userId}")
-    public ResponseEntity<Void> deleteBoard(@PathVariable int userId) {
-        boardService.deleteBoard(userId);
+    @DeleteMapping("/board/{boardId}")
+    public ResponseEntity<Void> deleteBoard(@PathVariable int boardId) {
+        boardService.deleteBoard(boardId);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }

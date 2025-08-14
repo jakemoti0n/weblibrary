@@ -12,10 +12,10 @@ import com.example.backend.model.Board;
 @Mapper
 public interface BoardRepository {
     int getBoardCount();
-    int getBoardCount(@Param("userId") int userId);
+    int getBoardCount(@Param("userId") Integer userId);
 
     List<Board> getBoardList();
-    Board getBoardDetail(int boardId);
+    Board getBoardDetail(@Param("boardId") int boardId);
 
     void insertBoard(Board board);
     void updateBoard(Board board);

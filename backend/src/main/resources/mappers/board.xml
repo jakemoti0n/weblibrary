@@ -5,7 +5,7 @@
 
     <select id="getBoardCount" parameterType="int" resultType="int">
 		SELECT COUNT(*) FROM BOARD
-		<if test="userId != null">
+		<if test="userId != null"> USER_ID = #{userId}
 			 WHERE USER_ID = #{userId}
 		</if>
 	</select>
@@ -25,18 +25,20 @@
 		SELECT 	USER_name AS userName,
 				board_content 	AS 	boardContent,
 				title 	AS 	title
-		FROM DEPT WHERE board_id = #{boardId}
+		FROM BOARD WHERE board_id = #{boardId}
 	</select>
 
 	<update id="updateBoard" parameterType="com.example.backend.model.Board">
 		UPDATE BOARD
-		SET title=#{title}, board_content=#{boardContent}
-		WHERE board_id = #{boardId}
+		SET 
+		title=#{title}, 
+		BOARD_CONTENT=#{boardContent},
+		WHERE BOARD_ID = #{boardId}
 	</update>
 	
 	<insert id="insertBoard" parameterType="com.example.backend.model.Board">
 		INSERT INTO BOARD ( BOARD_ID, USER_ID, TITLE, BOARD_CONTENT, BOOK_SCORE, CRATED_AT, BOOK_NAME, USER_NAME )
-		VALUES ( #{boardID}, #{userId}, #{title}, #{boardContent}, #{bookScore}, #{createdAt}, #{bookName}, #{userName})
+		VALUES ( #{boardId}, #{userId}, #{title}, #{boardContent}, #{bookScore}, #{cratedAt}, #{bookName}, #{userName})
 	</insert>
 	
 	<delete id="deleteBoard" parameterType="com.example.backend.model.Board">
