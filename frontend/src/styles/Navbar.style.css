@@ -1,0 +1,56 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  background-color: #fff;
+}
+
+/* 왼쪽, 가운데, 오른쪽 flex 영역 */
+.nav-left,
+.nav-center,
+.nav-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.nav-left {
+  justify-content: flex-start;
+}
+
+.nav-center {
+  justify-content: center;
+}
+
+.nav-right {
+  justify-content: flex-end;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo img {
+  height: 32px; /* 로고 이미지 크기 */
+  width: auto;
+}
+
+
+.search-input {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px 0 0 20px;
+  outline: none;
+}
+
+.search-btn {
+  border: 1px solid #ccc;
+  border-left: none;
+  padding: 5px 10px;
+  border-radius: 0 20px 20px 0;
+  background: #fff;
+  cursor: pointer;
+}

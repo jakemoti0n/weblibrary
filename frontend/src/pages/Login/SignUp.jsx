@@ -14,11 +14,10 @@ import { Link as RouterLink } from "react-router-dom";
 import logo from "../../assets/booky.png";
 import useSignUp from "../../hooks/useSignUp";
 
-
 export default function SignUp() {
   const { mutate: signUp } = useSignUp();
   const [form, setForm] = useState({
-    id: "",
+    username: "",
     email: "",
     pw: "",
     pw2: "",
@@ -39,7 +38,7 @@ export default function SignUp() {
   );
 
   const canSubmit =
-    form.id.trim() &&
+    form.username.trim() &&
     form.email.trim() &&
     form.pw.trim() &&
     form.pw2.trim() &&
@@ -49,15 +48,15 @@ export default function SignUp() {
     e.preventDefault();
     if (!canSubmit) return;
 
-  const payload = {
-    username: form.id,
-    password: form.pw,
-    email: form.email,
-  };
+    const payload = {
+      username: form.username,
+      password: form.pw,
+      email: form.email,
+    };
 
-  // 회원가입 API 호출
-  signUp(payload);
-};
+    // 회원가입 API 호출
+    signUp(payload);
+  };
 
   return (
     <Box
@@ -95,8 +94,8 @@ export default function SignUp() {
         <Box component="form" onSubmit={handleSubmit} noValidate>
           <Stack spacing={2}>
             <TextField
-              name="id"
-              value={form.id}
+              name="username"
+              value={form.username}
               onChange={onChange}
               placeholder="아이디"
               fullWidth
@@ -202,7 +201,7 @@ export default function SignUp() {
                 mt: 0.5,
                 py: 1.2,
                 borderRadius: 1,
-                bgcolor: "#FFD400",           
+                bgcolor: "#FFD400",
                 "&:hover": { bgcolor: "#e6bf00" },
                 textTransform: "none",
                 fontWeight: 600,

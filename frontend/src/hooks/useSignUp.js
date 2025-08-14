@@ -8,13 +8,11 @@ const signUp = async (formData) => {
 
 export default function useSignUp() {
   return useMutation({ mutationFn: signUp ,
-    //  성공 처리
     onSuccess: () => {
       alert("회원가입 성공!");
       window.location.href = "/login";
     },
-
-    //  에러 처리
+    
     onError: (error) => {
       if (error?.response?.status === 409) {
         alert("이미 존재하는 아이디입니다.");
@@ -22,7 +20,6 @@ export default function useSignUp() {
         alert("에러 발생: " + (error.response?.data || error.message));
       }
     },
-
     //  무조건 실행됨 (성공/실패 상관없이)
     onSettled: () => {
       console.log("요청 종료됨");
