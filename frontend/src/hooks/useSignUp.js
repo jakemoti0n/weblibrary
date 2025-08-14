@@ -1,5 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import api from "../utils/api";
+import { useNavigate } from "react-router";
 
 const signUp = async (formData) => {
   const res = await api.post("/api/auth/signup", formData);
@@ -7,6 +8,7 @@ const signUp = async (formData) => {
 };
 
 export default function useSignUp() {
+  //const navigate = useNavigate
   return useMutation({ mutationFn: signUp ,
     onSuccess: () => {
       alert("회원가입 성공!");
