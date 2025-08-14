@@ -8,11 +8,11 @@ const signUp = async (formData) => {
 };
 
 export default function useSignUp() {
-  //const navigate = useNavigate
+  const navigate = useNavigate();
   return useMutation({ mutationFn: signUp ,
     onSuccess: () => {
       alert("회원가입 성공!");
-      window.location.href = "/login";
+      navigate('/login');
     },
     
     onError: (error) => {
