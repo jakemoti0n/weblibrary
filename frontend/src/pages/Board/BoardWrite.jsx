@@ -52,12 +52,12 @@ export default function BoardWrite() {
         <Box className="form-row">
           <Typography 
           className ="dfdfdfdf"
-        //   sx={{ 
-        //     fontSize: 25,
-        //       marginBottom: 1,
-        //       fontWeight: "bold",
-        //       fontFamily: "'KyoboHand', sans-serif",
-        //  }}
+          sx={{ 
+            fontSize: 25,
+              marginBottom: 1,
+              fontWeight: "bold",
+              fontFamily: "'KyoboHand', sans-serif",
+         }}
          
          >책 제목</Typography>
           <TextField

@@ -31,10 +31,7 @@
   font-size: 15rem;
 }
 
-.dfdfdfdf{
-  font-size: 10000px;
-  color: aqua;
-}
+
 /* 플레이스홀더(불투명 글씨) */
 .title-input .MuiInputBase-input::placeholder,
 .content-input .MuiInputBase-input::placeholder {
