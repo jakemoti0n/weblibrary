@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.backend.dao.MemberMapper">
+
+  <!-- username 중복 체크 -->
+  <select id="existsByUsername" parameterType="string" resultType="int">
+    SELECT COUNT(*) FROM MEMBER WHERE USERNAME = #{username}
+  </select>
+
+  <!-- email 중복 체크 -->
+  <select id="existsByEmail" parameterType="string" resultType="int">
+    SELECT COUNT(*) FROM MEMBER WHERE EMAIL = #{email}
+  </select>
+
+  <!-- INSERT: 시퀀스로 PK 채번 후 저장 -->
+  <insert id="insertMember" parameterType="Member">
+  <selectKey keyProperty="userId" resultType="long" order="BEFORE">
+    SELECT MEMBER_SEQ.NEXTVAL FROM DUAL
+  </selectKey>
+  INSERT INTO MEMBER (USER_ID, USERNAME, PASSWORD, EMAIL, ROLE)
+  VALUES (#{userId}, #{username}, #{password}, #{email}, #{role})
+  </insert>
+
+  <!-- PK로 단건 조회 -->
+  <select id="findByUserId" parameterType="long" resultType="Member">
+    SELECT 
+      USER_ID   AS userId,
+      USERNAME  AS username,
+      PASSWORD,
+      EMAIL,
+      ROLE
+    FROM MEMBER
+    WHERE USER_ID = #{userId}
+  </select>
+
+  <!-- username으로 단건 조회 (로그인 등에서 사용) -->
+  <select id="findByUsername" parameterType="string" resultType="Member">
+    SELECT 
+      USER_ID   AS userId,
+      USERNAME  AS username,
+      PASSWORD,
+      EMAIL,
+      ROLE
+    FROM MEMBER
+    WHERE USERNAME = #{username}
+  </select>
+
+</mapper>

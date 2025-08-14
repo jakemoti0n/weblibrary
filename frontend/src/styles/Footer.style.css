@@ -1,0 +1,72 @@
+.footer {
+  color: #4B3F2F;
+  padding: 30px 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+  margin: 10px;
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding-bottom: 5px;
+}
+.footer-section ul {
+  list-style: none; 
+  padding-left: 0;  
+  margin-left: 0;
+}
+
+.footer-section p {
+  font-size: 14px;
+  color: #6c5f4b;
+}
+
+.footer-section ul li a {
+  color: #4B3F2F;
+  text-decoration: none; /* 밑줄 제거 */
+  display: inline-block; /* 클릭 영역 넓히기 */
+  padding: 2px 0;
+}
+
+.footer-section ul li a:hover {
+  color: #8B7B6F;
+  text-decoration: underline; /* 호버 시 밑줄 */
+}
+
+.social-media {
+  list-style: none;
+  padding: 0;
+}
+
+.social-media li {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #4B3F2F;
+}
+
+.social-media li:hover {
+  color: #8B7B6F;
+}
+
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding-top: 10px;
+  font-size: 13px;
+  color: #6c5f4b;
+}
