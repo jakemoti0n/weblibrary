@@ -9,6 +9,8 @@ import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import api from '../../utils/api';
+import { Star, StarHalf, StarBorder } from '@mui/icons-material';
+import Rating from '@mui/material/Rating';
 
 export default function BoardDetail() {
   const { id: boardId } = useParams();
@@ -37,7 +39,6 @@ export default function BoardDetail() {
   const {
     title,
     userName,
-    bookName,
     bookScore,
     boardContent,
     createdAt,
@@ -46,15 +47,19 @@ export default function BoardDetail() {
 
   const fmtDate = (d) => {
     if (!d) return '';
-    // 백엔드 포맷에 따라 조정 (ISO면 이대로 OK)
     const dt = new Date(d);
-    if (Number.isNaN(dt.getTime())) return d;
+    if (Number.isNaN(dt.getTime())) return 'type error';
     return `${dt.getFullYear()}.${String(dt.getMonth()+1).padStart(2,'0')}.${String(dt.getDate()).padStart(2,'0')} ${String(dt.getHours()).padStart(2,'0')}:${String(dt.getMinutes()).padStart(2,'0')}`;
   };
 
   return (
+    console.log({createdAt}),
     <Container sx={{ py: 3, maxWidth: 1000 }}>
-      <Paper sx={{ p: { xs: 2, md: 3 } }}>
+      <Paper sx={{
+         p: { xs: 2, md: 3 },
+         border: '1px solid rgba(0, 0, 0, 0.2)', // 테두리 색 & 두께
+         boxShadow: '0px 2px 8px rgba(0,0,0,0.1)' // 그림자 유지
+         }}>
         {/* 제목 */}
         <Typography
           variant="h4"
@@ -64,28 +69,43 @@ export default function BoardDetail() {
         </Typography>
 
         {/* 메타 정보: 작성자 / 책 / 평점 / 날짜 / 조회수 */}
-        <Stack
-          direction={{ xs: 'column', sm: 'row' }}
-          spacing={1.5}
-          justifyContent="space-between"
-          alignItems={{ xs: 'flex-start', sm: 'center' }}
-          sx={{ color: 'text.secondary', mb: 2 }}
-        >
-          <Stack direction="row" spacing={1.5} alignItems="center" flexWrap="wrap">
-            <Typography variant="body2" sx={{ fontSize: 17}}>작성자 : {userName ?? '-'}</Typography>
-            {bookName && <Chip label={`도서: ${bookName}`} size="small" />}
-            {typeof bookScore === 'number' && (
-              <Chip label={`평점: ${bookScore}`} size="small" />
-            )}
-          </Stack>
+            <Stack
+                direction="row"
+                alignItems="center"
+                justifyContent="space-between" // ✅ 좌-우 끝 배치
+                sx={{ width: '100%' }}
+              >
+                {/* 왼쪽: 작성자 */}
+                <Typography variant="body1" sx={{ fontSize: 20 }}>
+                  작성자: {userName ?? '-'}
+                </Typography>
 
-          <Stack direction="row" spacing={2} sx={{ color: 'text.disabled' }}>
-            <Typography variant="body2">{fmtDate(createdAt)}</Typography>
-            {typeof views === 'number' && (
-              <Typography variant="body2">조회 {views}</Typography>
-            )}
-          </Stack>
-        </Stack>
+                {/* 오른쪽: 평점 */}
+                {typeof bookScore === 'number' && (
+                  <Chip
+                    label={
+                      <Stack direction="row" alignItems="center" spacing={0.5}>
+                     <Rating value={Number(bookScore) || 0} precision={0.5} readOnly size="small" />
+                      </Stack>
+                    }
+                    size="small"
+                  />
+                )}
+              </Stack>
+  {/* 날짜 / 조회수 */}
+       <Stack direction="row" spacing={2} sx={{ color: 'text.disabled' }}>
+    
+          <Typography variant="body2">작성일: {fmtDate(createdAt)}</Typography>
+          {typeof views === 'number' && (
+            <Typography variant="body2">조회 {views}</Typography>
+          )}
+          {/* 조회수 */}
+        {typeof views === 'number' && (
+          <Typography variant="body2" sx={{ color: 'text.disabled' }}>
+          조회 {views}
+          </Typography>)}
+       </Stack>
+  
 
         <Divider sx={{ mb: 2 }} />
 
@@ -104,7 +124,7 @@ export default function BoardDetail() {
 
         <Divider sx={{ my: 3 }} />
 
-        {/* 하단 버튼: 목록으로만 (좋아요/공유/댓글 등 전부 제외) */}
+        {/* 하단 버튼: 목록 */}
         <Stack direction="row" justifyContent="space-between">
           <Button variant="outlined" component={RouterLink} to="/board">
             목록

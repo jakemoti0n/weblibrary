@@ -13,6 +13,8 @@ export default function BoardWrite() {
   const [title, setTitle] = useState('');
   const [boardContent, setBoardContent] = useState('');
   const [bookScore, setBookScore] = useState(0);
+  const dummyUserId = 21; // 테스트용
+  const dummyUserName = '테스트유저';
 
     const scoreOptions = useMemo(
     () => Array.from({ length: 11 }, (_, i) => (i * 0.5).toFixed(1)),
@@ -24,13 +26,24 @@ export default function BoardWrite() {
       alert('제목과 내용을 입력해 주세요.');
       return;
     }
-
+    try {
       await api.post('/api/board/insert', {
       bookName,
       title,
       boardContent,
-      bookScore
-  });
+      bookScore,
+      userId: dummyUserId,     
+      userName: dummyUserName 
+    });
+
+      alert('작성완료 되었습니다.');
+      navigate('/board'); // 게시판 목록 페이지로 이동
+
+    } catch (error) {
+      console.error('게시글 작성 실패:', error);
+      alert('작성 중 오류가 발생했습니다.');
+    }
+
 };
  
   return (

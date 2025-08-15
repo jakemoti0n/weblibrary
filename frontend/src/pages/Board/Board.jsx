@@ -16,6 +16,7 @@ import Box from '@mui/material/Box';
 import "../../styles/Board.style.css";
 import api from '../../utils/api';
 import { Link } from 'react-router-dom';
+import Rating from '@mui/material/Rating';
 
 function CustomPagination() {
   const apiRef = useGridApiContext();
@@ -48,6 +49,8 @@ export default function Board() {
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState(null);
 
+
+
   // --- 검색 폼 상태(동작 연결) ---
   const [field, setField] = useState('title');
   const [query, setQuery] = useState('');
@@ -70,7 +73,11 @@ export default function Board() {
       
     },
     { field: 'userName', headerName: '작성자', flex: 1, minWidth: 140, headerClassName: 'header-blue', align: 'center', headerAlign: 'center'},
-    { field: 'bookScore', headerName: '평점', flex: 0.6, minWidth: 100, headerClassName: 'header-blue', align: 'center', headerAlign: 'center'},
+    { field: 'bookScore', headerName: '평점', flex: 0.6, minWidth: 100, headerClassName: 'header-blue', align: 'center', headerAlign: 'center',
+      renderCell: (params) => (
+    <Rating value={Number(params.value) || 0} precision={0.5} readOnly size="small" />
+  )
+    },
   ];
 
   const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 10 });

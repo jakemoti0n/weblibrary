@@ -51,7 +51,7 @@ public class BoardAPIController {
         return ResponseEntity.status(HttpStatus.OK).body(detail);
     }
 
-    @PostMapping
+    @PostMapping("/insert")
     public ResponseEntity<Void> insertBoard(@RequestBody Board board) {
         boardService.insertBoard(board);
         return ResponseEntity.status(HttpStatus.CREATED).build();

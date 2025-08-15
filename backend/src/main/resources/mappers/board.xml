@@ -24,7 +24,9 @@
 	<select id="getBoardDetail" parameterType="int" resultType="com.example.backend.model.Board">
 		SELECT 	USER_name AS userName,
 				board_content 	AS 	boardContent,
-				title 	AS 	title
+				title 	AS 	title,
+				book_Score  as bookScore,
+				CREATED_AT as createdAt
 		FROM BOARD WHERE board_id = #{boardId}
 	</select>
 
@@ -37,8 +39,8 @@
 	</update>
 	
 	<insert id="insertBoard" parameterType="com.example.backend.model.Board">
-		INSERT INTO BOARD ( BOARD_ID, USER_ID, TITLE, BOARD_CONTENT, BOOK_SCORE, CRATED_AT, BOOK_NAME, USER_NAME )
-		VALUES ( #{boardId}, #{userId}, #{title}, #{boardContent}, #{bookScore}, #{cratedAt}, #{bookName}, #{userName})
+		INSERT INTO BOARD (USER_ID, TITLE, BOARD_CONTENT, BOOK_SCORE, BOOK_NAME, USER_NAME )
+		VALUES (#{userId}, #{title}, #{boardContent}, #{bookScore}, #{bookName}, #{userName})
 	</insert>
 	
 	<delete id="deleteBoard" parameterType="com.example.backend.model.Board">
