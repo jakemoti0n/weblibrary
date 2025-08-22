@@ -4,3 +4,8 @@
     font-weight: normal;
     font-style: normal;
 }
+
+html, body, #root {
+    margin: 0;
+    padding: 0;
+}

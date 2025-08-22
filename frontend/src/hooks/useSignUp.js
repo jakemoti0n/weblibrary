@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import api from "../utils/api";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 const signUp = async (formData) => {
   const res = await api.post("/api/auth/signup", formData);
@@ -12,9 +12,8 @@ export default function useSignUp() {
   return useMutation({ mutationFn: signUp ,
     onSuccess: () => {
       alert("회원가입 성공!");
-      navigate('/login');
+      navigate('/login', {replace:true});
     },
-    
     onError: (error) => {
       if (error?.response?.status === 409) {
         alert("이미 존재하는 아이디입니다.");

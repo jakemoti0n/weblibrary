@@ -19,11 +19,11 @@ export default defineConfig({
       },
 
       // 알라딘 API 프록시 ->Cors 문제 해결을 위해
-      // "/ttb/api": {
-      //   target: "https://www.aladin.co.kr/ttb/api",
-      //   changeOrigin: true,
-      //   rewrite: (path) => path.replace(/^\/ttb\/api/, ""),
-      // },
+      "/ttb/api": {
+        target: "https://www.aladin.co.kr/ttb/api",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/ttb\/api/, ""),
+      },
     },
   },
 });

@@ -1,0 +1,50 @@
+.page-container {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 40px);
+  box-sizing: border-box;
+}
+
+.section { 
+  margin: 32px 0; 
+}
+
+.carousel-container {
+  height: 440px;
+  margin: 0 auto;
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.carousel-container .react-multi-carousel-dot button {
+  border: none;
+  background: #ccc;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+.carousel-container .react-multi-carousel-dot--active button {
+  background: #fc2e0a;
+}
+
+.book-slider {
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 464px) {
+  .carousel-container {
+    padding: 0 8px;
+  }
+  .book-slider {
+    padding: 0 6px;
+  }
+}
+
+.book-card {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+}
