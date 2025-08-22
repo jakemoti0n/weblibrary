@@ -1,0 +1,64 @@
+.book-card {
+    width: 200px;
+    height: 300px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.book-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.book-face {
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    backface-visibility: hidden;
+}
+
+.book-front {
+    transform: rotateY(0deg);
+    transition: opacity 0.4s ease;
+}
+.book-front .book-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.book-back {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 14px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    transform: rotateY(180deg);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.4s ease;
+}
+
+
+.book-card:hover .book-back,
+.book-card.is-flipped .book-back {
+    transform: rotateY(0deg);
+    opacity: 1;
+}
+
+.book-card:hover .book-front,
+.book-card.is-flipped .book-front {
+    opacity: 0.25;
+}
+
+.book-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
+.book-author { font-size: 0.9rem; opacity: 0.85; }
+
+@media (prefers-reduced-motion: reduce) {
+    .book-back, .book-front { transition: none; }
+}

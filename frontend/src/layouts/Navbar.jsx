@@ -1,30 +1,94 @@
-import React from "react";
-import '../styles/Navbar.style.css'
-import { useNavigate } from 'react-router-dom';
+import * as React from "react";
+import { AppBar, Container, Toolbar, Typography, Stack, Link as MLink } from "@mui/material";
+import { NavLink } from "react-router-dom";
 
-export default function Navbar() {
-    const navigate = useNavigate();
+const BEIGE = "#faf6ef";      
+const green = "#589857";     
+const green_DIM = "#569955ff";
 
+const linkSx = {
+  px: 2,
+  py: 1.25,
+  fontSize: 15,
+  textDecoration: "none",
+  color: green,
+  borderRadius: 0,                
+  transition: "all .15s ease",
+  "&:hover": {
+    textDecoration: "underline",  
+    textUnderlineOffset: "4px",   
+    textDecorationThickness: "3px", // 밑줄
+  },
+};
+
+const activeSx = {
+  textDecoration: "underline",
+  textUnderlineOffset: "5px",
+  textDecorationThickness: "3px",
+  fontWeight: 600,
+};
+
+
+export default function NavBar() {
     return (
-    <nav className="navbar">
-        
-        <div className="nav-left">
-        <button onClick={() => navigate('/login')}>로그인</button>
-        <button onClick={() => navigate('/board')}>게시판</button>
-        </div>
+    <AppBar position="static" elevation={0} sx={{ bgcolor: BEIGE, color: green }}>
+        <Container maxWidth="lg" disableGutters>
+        <Toolbar disableGutters sx={{ px:0, minHeight: 'auto' }}>
+          {/* 좌: 로고/브랜드 */}
+            <Typography
+            component={NavLink}
+            to="/"
+            sx={{
+                mr: 4,
+                fontWeight: 800,
+                fontSize: 28,
+                letterSpacing: "-0.02em",
+                color: green,
+                textDecoration: "none",
+                "&:hover": { color: green_DIM },
+            }}
+            >
+            logogogo
+            </Typography>
 
-        <div className="nav-center">
-            <img src="../assets/booky.png" alt="Logo" />
-        </div>
+            <Stack direction="row"  sx={{ flexGrow: 1 }}>
+            {[
+                { to: "/board", label: "게시판" },
+                { to: "/", label: "추천 책장" },
+                { to: "/", label: "책장 소식" },
+            ].map((item) => (
+                <MLink
+                key={item.to}
+                component={NavLink}
+                to={item.to}
+                sx={({ isActive }) => ({
+                    ...linkSx,
+                    ...(isActive ? activeSx : null),
+                })}
+                >
+                {item.label}
+                </MLink>
+            ))}
+            </Stack>
 
-        <div className="nav-right">
-            <input
-            type="text"
-            placeholder="키워드, 강사, 저자를 입력"
-            className="search-input"
-            />
-            <button className="search-btn">🔍</button>
-        </div>
-        </nav>
+            < Stack direction="row" spacing={0.5}>
+            <MLink
+                component={NavLink}
+                to="/login"
+                sx={linkSx}
+            >
+                로그인
+            </MLink>
+            <MLink
+                component={NavLink}
+                to="/login/signup"
+                sx={linkSx}
+            >
+                회원가입
+            </MLink>
+            </Stack>
+        </Toolbar>
+        </Container>
+    </AppBar>
     );
 }
