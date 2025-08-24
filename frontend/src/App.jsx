@@ -8,10 +8,13 @@ import SignUp from './pages/Login/SignUp.jsx';
 
 import BookDetail from './pages/Book/BookDetail.jsx';
 import BookListpage from './pages/Book/BookListpage.jsx';
+import BookRecom from './pages/Book/BookRecom.jsx';
+import BookEdit from './pages/Book/BookEdit.jsx';
 
 import Board from './pages/Board/Board.jsx';
 import BoardDetail from './pages/Board/BoardDetail.jsx';
 import BoardWrite from './pages/Board/BoardWrite.jsx';
+import BoardUpdate from './pages/Board/BoardUpdate.jsx';
 
 import Mypage from './pages/Mypage/Mypage.jsx';
 
@@ -28,6 +31,8 @@ function App() {
           <Route path="books">
             <Route index element={<BookListpage />} />
             <Route path="id:" element={<BookDetail />} />
+            <Route path="recom" element={<BookRecom />} />
+            <Route path="edit" element={<BookEdit />} />
           </Route>
          
           {/* 게시판 관련 라우트 */}
@@ -35,6 +40,7 @@ function App() {
             <Route index element={<Board />} />
             <Route path=":id" element={<BoardDetail />} />
             <Route path="write" element={<BoardWrite />} />
+            <Route path=":id/update" element={<BoardUpdate />} />
           </Route>
           {/* 마이페이지 관련 라우트 */}
           <Route path="mypage" element={<Mypage />} />

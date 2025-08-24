@@ -11,6 +11,8 @@ export default function Navbar() {
         <div className="nav-left">
         <button onClick={() => navigate('/login')}>로그인</button>
         <button onClick={() => navigate('/board')}>게시판</button>
+        <button onClick={() => navigate('/books/recom')}>추천도서</button>
+        <button onClick={() => navigate('/books/edit')}>책 수정</button>
         </div>
 
         <div className="nav-center">

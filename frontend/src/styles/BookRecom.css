@@ -1,0 +1,14 @@
+html, body, #root {
+  height: 100%;    /* 전체 높이 기준 */
+}
+
+.bodyy {
+  margin: 0;
+  padding: 0;
+  background-image: url('../pages/Book/back.jpg');
+  background-repeat: repeat-y;       /* 세로로 반복해서 늘어나도록 */
+  background-size: cover;            /* 가로는 화면 채우기 */
+  background-position: center top;   /* 위쪽부터 시작 */
+  min-height: 100%;
+  height: auto;                     /* 내용 따라 자동으로 늘어남 */
+}

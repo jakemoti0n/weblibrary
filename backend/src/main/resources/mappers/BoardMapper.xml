@@ -26,7 +26,8 @@
 				board_content 	AS 	boardContent,
 				title 	AS 	title,
 				book_Score  as bookScore,
-				CREATED_AT as createdAt
+				CREATED_AT as createdAt,
+				book_Name as bookName
 		FROM BOARD WHERE board_id = #{boardId}
 	</select>
 
@@ -35,7 +36,9 @@
 		SET 
 		title=#{title}, 
 		BOARD_CONTENT=#{boardContent},
-		WHERE BOARD_ID = #{boardId}
+		book_Name=#{bookName}, 
+      	book_Score=#{bookScore}
+		WHERE BOARD_ID=#{boardId}
 	</update>
 	
 	<insert id="insertBoard" parameterType="com.example.backend.model.Board">

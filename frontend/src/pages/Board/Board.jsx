@@ -5,7 +5,6 @@ import Pagination from '@mui/material/Pagination';
 import Paper from '@mui/material/Paper';
 import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
-import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
@@ -123,7 +122,7 @@ export default function Board() {
       maxWidth={false}
       sx={{ maxWidth: 1600, mx: 'auto', px: 2, mt: 4 }} // ★ CHANGED: 컨테이너 최대폭 커스텀
     >
-      <Paper sx={{ p: 2 }}>
+      
         <h1 className="reviewHead">도서리뷰</h1>
 
         <DataGrid
@@ -153,7 +152,7 @@ export default function Board() {
             }
           }}
         />
-      </Paper>
+      
 
       {/* 하단 검색/글쓰기 바 - 컨테이너 하단 sticky */}
       <Box

@@ -1,25 +1,47 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 
 import { Container, Paper, Box, TextField, Button, Stack, Typography } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useNavigate } from 'react-router-dom';
 import "../../styles/BoardWrite.style.css";
 import api from '../../utils/api';
+import { useParams } from 'react-router-dom';
 
-
-export default function BoardWrite() {
+export default function BoardUpdate() {
   const navigate = useNavigate();
+
+  // use state 
   const [bookName, setBookName] = useState('');
   const [title, setTitle] = useState('');
   const [boardContent, setBoardContent] = useState('');
   const [bookScore, setBookScore] = useState(0);
-  const dummyUserId = 21; // 테스트용
-  const dummyUserName = '테스트유저';
+  const { id: boardId } = useParams();
+  
+  const [err, setErr] = useState(null);
+  const [loading, setLoading] = useState(true);
 
     const scoreOptions = useMemo(
     () => Array.from({ length: 11 }, (_, i) => (i * 0.5).toFixed(1)),
     []
   );
+
+  useEffect(() => {
+    (async () => {
+      try {
+        setLoading(true);
+        const res = await api.get(`/api/board/${boardId}`);
+        const d = res.data;
+        setTitle(d.title);
+        setBookName(d.bookName);
+        setBoardContent(d.boardContent);
+        setBookScore(d.bookScore);
+      } catch (e) {
+        setErr(e.message || '불러오기 실패');
+      } finally {
+        setLoading(false);
+      }
+    })();
+  }, [boardId]);
 
   const handleSubmit = async () => {
     if (!title.trim() || !boardContent.trim()) {
@@ -27,24 +49,26 @@ export default function BoardWrite() {
       return;
     }
     try {
-      await api.post('/api/board/insert', {
+      await api.put(`/api/board/${boardId}`, {
       bookName,
       title,
       boardContent,
       bookScore,
-      userId: dummyUserId,     
-      userName: dummyUserName 
     });
-
-      alert('작성완료 되었습니다.');
-      navigate('/board'); // 게시판 목록 페이지로 이동
+      alert('수정완료 되었습니다.');
+      navigate(`/board/${boardId}`); 
 
     } catch (error) {
-      console.error('게시글 작성 실패:', error);
-      alert('작성 중 오류가 발생했습니다.');
+      console.error('수정 오류:', error);
+      alert('수정 중 오류가 발생했습니다.');
     }
 
 };
+
+  if (loading) return <Container sx={{ py: 3 }}>로딩중…</Container>;
+  if (err) return <Container sx={{ py: 3, color: 'error.main' }}>에러: {err}</Container>;
+
+  
  
   return (
      <Container
@@ -58,7 +82,7 @@ export default function BoardWrite() {
               marginBottom: 2,
               fontWeight: "bold",
               fontFamily: "'KyoboHand', sans-serif",
-         }}>리뷰 작성</Typography>
+         }}>리뷰 수정</Typography>
         
 
         {/* 책 제목 */}
@@ -69,14 +93,11 @@ export default function BoardWrite() {
             fontSize: 25,
               marginBottom: 1,
               fontWeight: "bold",
-              fontFamily: "'KyoboHand', sans-serif",
-         }}
-         
-         >책 제목</Typography>
+              fontFamily: "'KyoboHand', sans-serif",   
+         }}>책 제목</Typography>
           <TextField
             value={bookName}
             onChange={(e) => setBookName(e.target.value)}
-            placeholder="책 제목을 입력하세요"
             fullWidth
             size="medium"
             className="bookName-input"
@@ -93,9 +114,8 @@ export default function BoardWrite() {
               fontFamily: "'KyoboHand', sans-serif",
          }}>제목</Typography>
           <TextField
-            value={title}
+            value={title}a
             onChange={(e) => setTitle(e.target.value)}
-            placeholder="제목을 입력하세요"
             fullWidth
             size="medium"
             className="title-input"
@@ -114,7 +134,6 @@ export default function BoardWrite() {
           <TextField
             value={boardContent}
             onChange={(e) => setBoardContent(e.target.value)}
-            placeholder="내용을 입력하세요"
             fullWidth
             multiline
             minRows={12}
@@ -141,7 +160,7 @@ export default function BoardWrite() {
           <Autocomplete
             disablePortal
             options={scoreOptions}
-            value={bookScore.toFixed(1)}
+            value={bookScore ? bookScore.toFixed(1) : 0.0}
             onChange={(_, v) => setBookScore(Number(v ?? 0))}
             sx={{ width: 160 }}
             renderInput={(params) => <TextField {...params} label="0.0 ~ 5.0" size="small" />}
@@ -151,7 +170,7 @@ export default function BoardWrite() {
         {/* 오른쪽: 버튼들 */}
         <Stack direction="row" spacing={2} alignItems="center">
           <Button variant="outlined" onClick={() => navigate(-1)}>취소</Button>
-          <Button variant="contained" onClick={handleSubmit}>작성완료</Button>
+          <Button variant="contained" onClick={handleSubmit}>수정</Button>
         </Stack>
       </Stack>
     </Box>
