@@ -8,7 +8,6 @@ import RecoBooks from './components/RecoBooks.jsx';
 
 
 const Homepage = () => {
-  
   return (
         <div>
           <Banner />

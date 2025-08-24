@@ -54,8 +54,9 @@ export default function NavBar() {
             <Stack direction="row"  sx={{ flexGrow: 1 }}>
             {[
                 { to: "/board", label: "게시판" },
-                { to: "/", label: "추천 책장" },
+                { to: "/books/recom", label: "추천 책장" },
                 { to: "/", label: "책장 소식" },
+                { to: "/books/edit", label: "책 수정" },
             ].map((item) => (
                 <MLink
                 key={item.to}
