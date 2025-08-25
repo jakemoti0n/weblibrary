@@ -12,6 +12,7 @@ import BookDetail from './pages/Book/BookDetail.jsx';
 import BookListpage from './pages/Book/BookListpage.jsx';
 import BookRecom from './pages/Book/BookRecom.jsx';
 import BookEdit from './pages/Book/BookEdit.jsx';
+import BookView from './pages/Book/BookView.jsx'; // 내가 추가
 
 import Board from './pages/Board/Board.jsx';
 import BoardDetail from './pages/Board/BoardDetail.jsx';
@@ -45,6 +46,7 @@ function App() {
             <Route path="id:" element={<BookDetail />} />
             <Route path="recom" element={<BookRecom />} />
             <Route path="edit" element={<BookEdit />} />
+            <Route path="view" element={<BookView />} /> {/* 내가추가 */}
           </Route>
          
           {/* 게시판 관련 라우트 */}
