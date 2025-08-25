@@ -1,4 +1,6 @@
+import "aos/dist/aos.css"; 
 import './App.css'
+import React, { useEffect } from "react";
 import {Routes,Route} from 'react-router-dom';
 import AppLayout from './layouts/AppLayout.jsx';
 import Homepage from './pages/Home/Homepage.jsx';
@@ -20,8 +22,18 @@ import Mypage from './pages/Mypage/Mypage.jsx';
 
 import NotFound from './pages/NotFound/NotFound.jsx';
 
+import AOS from "aos";
+
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 800, 
+      once: true,
+      easing: "ease-out",
+    });
+  }, []);
+
   return (
     <div>
       <Routes>
