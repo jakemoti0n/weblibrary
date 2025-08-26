@@ -41,6 +41,7 @@ const navItems = [
 export default function NavBar() {
     const [open, setOpen] = React.useState(false);
     const user = useAuthStore((s) => s.user);
+    console.log('[NAVBAR] user =', user);
 
     return (
     <AppBar position="static" elevation={0} sx={{ bgcolor: BEIGE, color: green }}>
