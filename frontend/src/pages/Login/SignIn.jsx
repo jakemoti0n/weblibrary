@@ -97,7 +97,7 @@ export default function SignIn() {
               disabled={!canSubmit}
               sx={{
                 mt: 0.5, py: 1.2, borderRadius: 1,
-                bgcolor: "#FFD700", "&:hover": { bgcolor: "#FFC300" },
+                bgcolor: "#589857", "&:hover": { bgcolor: "#5d995bff" },
                 textTransform: "none", fontWeight: 600, color: "#4B3F2F",
               }}
               fullWidth
