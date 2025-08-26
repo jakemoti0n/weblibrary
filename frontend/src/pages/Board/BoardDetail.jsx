@@ -147,12 +147,35 @@ export default function BoardDetail() {
 
         {/* 하단 버튼: 목록 */}
         <Stack direction="row" justifyContent="space-between">
-          <Button variant="outlined" component={RouterLink} to="/board">
+          <Button variant="contained" component={RouterLink} to="/board"
+          style={{ 
+            backgroundColor: "#4caf50", }}>
             목록
           </Button>
         <Stack direction="row" spacing={2} alignItems="center">
-          <Button variant="outlined" onClick={() => navigate(`/board/${boardId}/update`)}>수정</Button>
-          <Button variant="contained" onClick={handleDelete}>삭제</Button>
+          <Button
+           variant="outlined" 
+           onClick={() => navigate(`/board/${boardId}/update`)}
+           style={{ 
+            backgroundColor: "#50e054ff",   
+            color: "white",
+            padding: "15px 25px",
+            fontSize: "15px",
+            fontWeight: "bold",
+            border: "none",
+            borderRadius: "8px",
+          }}>수정</Button>
+          <Button variant="contained"
+           onClick={handleDelete}
+           style={{ 
+            backgroundColor: "#4caf50", 
+            color: "white",
+            padding: "15px 25px",
+            fontSize: "15px",
+            fontWeight: "bold",
+            border: "none",
+            borderRadius: "8px",
+          }}>삭제</Button>
         </Stack>
         </Stack>
 

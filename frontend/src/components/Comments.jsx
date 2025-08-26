@@ -74,7 +74,9 @@ export default function Comments({ boardId }) {
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
         />
-        <Button variant="contained" onClick={handleSubmit}>
+        <Button variant="contained" onClick={handleSubmit}
+        style={{ 
+            backgroundColor: "#50e054ff", }}>
           등록
         </Button>
       </Box>

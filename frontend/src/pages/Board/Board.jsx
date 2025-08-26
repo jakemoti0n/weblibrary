@@ -191,7 +191,9 @@ export default function Board() {
           sx={{ width: 280 }}
         />
 
-        <Button variant="outlined" onClick={handleSearch}>
+        <Button variant="contained" onClick={handleSearch}
+        style={{ 
+            backgroundColor: "#50e054ff"}}>
           찾기
         </Button>
 
@@ -199,8 +201,9 @@ export default function Board() {
 
         <Button
           variant="contained"
-          color="inherit"
           component={Link}
+          style={{ 
+            backgroundColor: "#4caf50"}}
           to="/board/write"
         >
           글쓰기
