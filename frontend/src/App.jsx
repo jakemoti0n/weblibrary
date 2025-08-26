@@ -24,6 +24,11 @@ import AOS from "aos";
 import SessionBootstrap from "./components/SessionBootstrap.jsx";
 
 
+import BookRecom from "./pages/Book/BookRecom.jsx";
+import BookEdit from "./pages/Book/BookEdit.jsx";
+import BookView from "./pages/Book/BookView.jsx";
+
+
 function App() {
   useEffect(() => {
     AOS.init({
@@ -62,6 +67,12 @@ function App() {
             <Route path="write" element={<BoardWrite />} />
             <Route path=":id/update" element={<BoardUpdate />} />
           </Route>
+          <Route path="recommand">
+            <Route index element={<BookRecom />} />
+            <Route path="edit" element={<BookEdit />} />
+            <Route path="view" element={<BookView />} />
+          </Route>
+          
         {/* </Route> */}
           {/* 마이페이지 관련 라우트 */}
           {/* <Route path="mypage" element={<Mypage />} /> */}

@@ -19,7 +19,7 @@ export default function BookEdit() { // props 제거
     sessionStorage.setItem('uploadedImages', JSON.stringify(uploaded));
     console.log('sessionStorage 저장 완료'); // 디버깅
     // BookView 페이지로 이동
-    navigate('/books/view');
+    navigate('/recommand/view');
     console.log('navigate 호출 완료'); // 디버깅
   };
 

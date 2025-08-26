@@ -109,7 +109,7 @@ export default function BookView() {
   };
 
   const handleBackToEdit = () => {
-    navigate('/books/edit');
+    navigate('/recommand/edit');
   };
 
   return (
