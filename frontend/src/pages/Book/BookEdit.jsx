@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Grid, Box, Button } from "@mui/material";
-import { useNavigate } from "react-router-dom"; // 추가
+import { useNavigate } from "react-router-dom";
 
-export default function BookEdit() { // props 제거
+export default function BookEdit() {
   const [uploaded, setUploaded] = useState({});
-  const navigate = useNavigate(); // 추가
+  const navigate = useNavigate();
+  const fileInputRefs = useRef({}); // 각 input에 대한 ref 저장
   
   // 업로드 처리
   const handleUpload = (index, file) => {
@@ -14,18 +15,43 @@ export default function BookEdit() { // props 제거
   };
 
   const handleViewBook = () => {
-    console.log('버튼 클릭됨!', uploaded); // 디버깅
+    console.log('버튼 클릭됨!', uploaded);
     // 업로드된 이미지를 sessionStorage에 임시 저장
     sessionStorage.setItem('uploadedImages', JSON.stringify(uploaded));
-    console.log('sessionStorage 저장 완료'); // 디버깅
+    console.log('sessionStorage 저장 완료');
     // BookView 페이지로 이동
     navigate('/recommand/view');
-    console.log('navigate 호출 완료'); // 디버깅
+    console.log('navigate 호출 완료');
+  };
+
+  // 파일 입력 클릭 핸들러
+  const handleFileInputClick = (index) => {
+    // 이미 업로드된 이미지가 있으면 클릭 무시
+    if (uploaded[index]) return;
+    
+    const input = fileInputRefs.current[index];
+    if (input) {
+      input.click();
+    }
+  };
+
+  // 파일 변경 핸들러
+  const handleFileChange = (index, event) => {
+    const file = event.target.files[0];
+    if (file) {
+      handleUpload(index, file);
+    }
+    // 같은 파일을 다시 선택할 수 있도록 value 초기화
+    event.target.value = '';
   };
 
   return ( 
     <>
-      <h2 style={{ textAlign: "center" , color: "green", marginBottom: 20 }}>결말 고치기</h2>
+      <h2 style={{ 
+        textAlign: "center",
+        color: "green",
+        marginBottom: 20,
+        fontSize: 40 }}>결말 추가하기</h2>
       
       <Grid container spacing={2}>
         {Array.from({ length: 16 }).map((_, i) => {
@@ -45,10 +71,12 @@ export default function BookEdit() { // props 제거
           // 드래그 앤 드롭 핸들러
           const handleDragOver = (e) => e.preventDefault();
           const handleDrop = (e) => {
-            e.preventDefault()
+            e.preventDefault();
             e.stopPropagation();
             const file = e.dataTransfer.files[0];
-            handleUpload(i, file);
+            if (file) {
+              handleUpload(i, file);
+            }
           };
           
           // 14, 15번 페이지: 업로드 박스
@@ -63,16 +91,11 @@ export default function BookEdit() { // props 제거
                   alignItems: "center",
                   justifyContent: "center",
                   borderRadius: 8,
-                  cursor: "pointer",
+                  cursor: uploaded[i] ? "default" : "pointer",
                   overflow: "hidden",
                   backgroundColor: uploaded[i] ? "#f0f8ff" : "transparent",
                 }}
-                onClick={() => {
-                  const input = document.getElementById(`upload-${i}`);
-                  if (!input) return;
-                  input.value = null;
-                  input.click();
-                }}
+                onClick={() => handleFileInputClick(i)} //라벨삭제해서 중복클릭없앴음
                 onDragOver={handleDragOver}
                 onDrop={handleDrop}
               >
@@ -101,28 +124,45 @@ export default function BookEdit() { // props 제거
                     >
                       ✓
                     </div>
+                    {/* 재업로드 버튼 추가 */}
+                    <div 
+                      style={{ 
+                        position: "absolute", 
+                        bottom: 5, 
+                        right: 5, 
+                        backgroundColor: "rgba(0,0,0,0.7)", 
+                        color: "white", 
+                        borderRadius: "4px", 
+                        padding: "2px 6px", 
+                        fontSize: 10,
+                        cursor: "pointer"
+                      }}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        const input = fileInputRefs.current[i];
+                        if (input) {
+                          input.click();
+                        }
+                      }}
+                    >
+                      변경
+                    </div>
                   </div>
                 ) : (
-                  <>
-                    <input
-                      type="file"
-                      accept="image/*"
-                      id={`upload-${i}`}
-                      style={{ display: "none" }}
-                      onChange={(e) =>{
-                        handleUpload(i, e.target.files[0]);
-                        e.target.value = null;
-                      }}
-                    />
-                    <label
-                      htmlFor={`upload-${i}`}
-                      style={{ cursor: "pointer", textAlign: "center" }}
-                    >
-                      📷 그림을 그려 보아요<br/>
-                      <small style={{ color: "gray" }}>페이지 {i + 1}</small>
-                    </label>
-                  </>
+                  <div style={{ textAlign: "center" }}>
+                    📷 그림을 그려 보아요<br/>
+                    <small style={{ color: "gray" }}>페이지 {i + 1}</small>
+                  </div>
                 )}
+                
+                {/* 숨겨진 파일 입력 */}
+                <input
+                  type="file"
+                  accept="image/*"
+                  ref={(el) => fileInputRefs.current[i] = el}
+                  style={{ display: "none" }}
+                  onChange={(e) => handleFileChange(i, e)}
+                />
               </Box>
             </Grid>
           );
@@ -143,7 +183,8 @@ export default function BookEdit() { // props 제거
             fontWeight: "bold",
             border: "none",
             borderRadius: "8px",
-            cursor: (uploaded[14] || uploaded[15]) ? "pointer" : "not-allowed"
+            cursor: (uploaded[14] || uploaded[15]) ? "pointer" : "not-allowed",
+            marginBottom: "30px"
           }}
         >
           📖 완성된 책 보기 ({(uploaded[14] ? 1 : 0) + (uploaded[15] ? 1 : 0)}/2)

@@ -67,7 +67,6 @@ export default function BookView() {
     { text: "별주부는 속았음을 깨닫고 주저앉아 울었어요. 토끼는 멀리 달아났고, 간을 구하지 못해 용왕님의 병은 낫지 못할 터. 별주부는 큰 벌을 두려워하며 눈물을 흘렸답니다." },
   ];
 
-  console.log('1111',pagess[1])
     // 0~13번 페이지: 기존 이미지들
     for (let i = 0; i <= 28; i++) {
       pages.push({
@@ -77,36 +76,22 @@ export default function BookView() {
     }
     
     // 14, 15번 페이지: 업로드된 이미지들
+
     if (uploadedImages[14]) {
-      pagess.push({
-        image: uploadedImages[14],
-       
-      });
+      pages.push({ image: uploadedImages[14] });
+    }
+    if (uploadedImages[14]) {
+      pages.push({ text: 'Ai돌릴내용 1페이지' });
     }
 
-        if (uploadedImages[14]) {
-      pages.push({
-      
-        text: 'Ai돌릴내용 1페이지' 
-      });
-    }
-    
     if (uploadedImages[15]) {
-      pages.push({
-        image: uploadedImages[15], 
- 
-      });
+      pages.push({ image: uploadedImages[15] });
     }
-
-        if (uploadedImages[15]) {
-      pages.push({
-     
-        text: 'Ai돌릴내용 2페이지' 
-      });
+    if (uploadedImages[15]) {
+      pages.push({ text: 'Ai돌릴내용 2페이지' });
     }
-    
-    return pagess;
-  };
+        return pages;
+      };
 
   const handleBackToEdit = () => {
     navigate('/recommand/edit');
