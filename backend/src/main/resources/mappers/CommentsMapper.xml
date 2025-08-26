@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.backend.dao.CommentsRepository">
+
+    <select id="getCommentscount" parameterType="int" resultType="int">
+		SELECT COUNT(*) FROM Comments
+		<if test="userId != null"> USER_ID = #{userId}
+			 WHERE USER_ID = #{userId}
+		</if>
+	</select>
+	
+	<select id="getCommentsDetail"  parameterType="int" resultType="com.example.backend.model.Comments">
+		SELECT c.board_id,
+        c.comment_id,
+         c.content,
+         c.created_at,
+         u.user_name
+        FROM COMMENTS c
+        JOIN USERS u ON c.user_id = u.user_id
+        WHERE c.board_id = #{boardId}
+        ORDER BY c.created_at ASC;
+	</select>
+	
+	<update id="updateComments" parameterType="com.example.backend.model.Comments">
+		UPDATE Comments
+		SET 
+        FROM COMMENTS c
+		Comments_CONTENT = #{commentsContent},
+		WHERE c.comments_id = #{commentsId};
+	</update>
+	
+	<insert id="insertComments" parameterType="com.example.backend.model.Comments">
+		INSERT INTO COMMENTS (board_id, user_id, Comments_content)
+        VALUES (#{boardId}, #{userId}, #{commentsContent});
+	</insert>
+	
+	<delete id="deleteComments" parameterType="com.example.backend.model.Comments">
+		DELETE FROM Comments 
+		WHERE c.comments_id = #{commentsId};
+	</delete>
+</mapper>

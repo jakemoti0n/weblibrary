@@ -34,7 +34,7 @@ const activeSx = {
 const navItems = [
     { to: "/board", label: "게시판" },
     { to: "/", label: "추천 책장" },
-    { to: "/", label: "책장 소식" },
+    { to: "/recommand/edit", label: "책장 소식" },
 ];
 
 
@@ -60,7 +60,7 @@ export default function NavBar() {
                 "&:hover": { color: green_DIM },
             }}
             >
-            logogogo
+            BooKids
             </Typography>
 
             <Stack direction="row" sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>

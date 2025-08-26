@@ -2,22 +2,43 @@ import { useEffect, useState } from 'react';
 import { useParams, Link as RouterLink } from 'react-router-dom';
 import Container from '@mui/material/Container';
 import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import {Typography, Divider, Box} from "@mui/material";
 import Stack from '@mui/material/Stack';
-import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import api from '../../utils/api';
-import { Star, StarHalf, StarBorder } from '@mui/icons-material';
 import Rating from '@mui/material/Rating';
+import { useNavigate } from 'react-router-dom'
+import Comments from "../../components/Comments";
+import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 
 export default function BoardDetail() {
+  const navigate = useNavigate();
   const { id: boardId } = useParams();
   const [data, setData] = useState(null);
   const [err, setErr] = useState(null);
   const [loading, setLoading] = useState(true);
 
+    // 취소 useEffect
+    const handleDelete = async () => {
+      const ok = window.confirm("정말 삭제하시겠습니까?");
+      if (!ok) return; 
+    
+      try {
+      await api.delete(`/api/board/${boardId}`, {
+    });
+      alert('삭제완료 되었습니다.');
+      navigate(`/board`); 
+
+    } catch (error) {
+      console.error('삭제 오류:', error);
+      alert('삭제 중 오류가 발생했습니다.');
+    }
+
+};
+
+    // 내용 받아오는 useEffect
   useEffect(() => {
     (async () => {
       try {
@@ -42,7 +63,6 @@ export default function BoardDetail() {
     bookScore,
     boardContent,
     createdAt,
-    views
   } = data;
 
   const fmtDate = (d) => {
@@ -96,14 +116,15 @@ export default function BoardDetail() {
        <Stack direction="row" spacing={2} sx={{ color: 'text.disabled' }}>
     
           <Typography variant="body2">작성일: {fmtDate(createdAt)}</Typography>
-          {typeof views === 'number' && (
-            <Typography variant="body2">조회 {views}</Typography>
-          )}
           {/* 조회수 */}
-        {typeof views === 'number' && (
+          {/* {typeof views === 'number' && (
+            <Typography variant="body2">조회 {views}</Typography>
+          )} */}
+         
+        {/* {typeof views === 'number' && (
           <Typography variant="body2" sx={{ color: 'text.disabled' }}>
           조회 {views}
-          </Typography>)}
+          </Typography>)} */}
        </Stack>
   
 
@@ -126,19 +147,47 @@ export default function BoardDetail() {
 
         {/* 하단 버튼: 목록 */}
         <Stack direction="row" justifyContent="space-between">
-          <Button variant="outlined" component={RouterLink} to="/board">
+          <Button variant="contained" component={RouterLink} to="/board"
+          style={{ 
+            backgroundColor: "#4caf50", }}>
             목록
           </Button>
-          {/* 필요 시 권한 있을 때만 수정/삭제 노출 (옵션)
-          {data.editable && (
-            <Stack direction="row" spacing={1}>
-              <Button variant="text">수정</Button>
-              <Button variant="text" color="error">삭제</Button>
-            </Stack>
-          )}
-          */}
+        <Stack direction="row" spacing={2} alignItems="center">
+          <Button
+           variant="outlined" 
+           onClick={() => navigate(`/board/${boardId}/update`)}
+           style={{ 
+            backgroundColor: "#50e054ff",   
+            color: "white",
+            padding: "15px 25px",
+            fontSize: "15px",
+            fontWeight: "bold",
+            border: "none",
+            borderRadius: "8px",
+          }}>수정</Button>
+          <Button variant="contained"
+           onClick={handleDelete}
+           style={{ 
+            backgroundColor: "#4caf50", 
+            color: "white",
+            padding: "15px 25px",
+            fontSize: "15px",
+            fontWeight: "bold",
+            border: "none",
+            borderRadius: "8px",
+          }}>삭제</Button>
         </Stack>
+        </Stack>
+
+    <Stack direction="row" alignItems="center" justifyContent="center" >
+      <button variant="outlined"><ThumbUpOutlinedIcon/>추천</button>
+      <button variant="contained">공감<FavoriteBorderOutlinedIcon/></button>
+    </Stack>
+
+       {/* 댓글 영역 */}
+      <Comments boardId={boardId} />    
       </Paper>
     </Container>
   );
 }
+

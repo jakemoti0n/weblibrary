@@ -24,14 +24,17 @@
     "aos": "^2.3.4",
     "axios": "^1.11.0",
     "dotenv": "^17.2.1",
+    "framer-motion": "^12.23.12",
     "lottie-react": "^2.4.1",
     "lottie-web": "^5.13.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-multi-carousel": "^2.8.6",
+    "react-pageflip": "^2.0.3",
     "react-paginate": "^8.3.0",
     "react-router": "^7.7.1",
     "react-router-dom": "^7.7.1",
+    "swiper": "^11.2.10",
     "zustand": "^5.0.7"
   },
   "devDependencies": {

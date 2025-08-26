@@ -122,7 +122,7 @@ export default function BoardWrite() {
           />
         </Box>
 
-             <Box
+    <Box
       sx={{
         //position: 'sticky',           // 스크롤해도 하단에 고정하고 싶으면 유지
         bottom: 0,
@@ -150,8 +150,10 @@ export default function BoardWrite() {
 
         {/* 오른쪽: 버튼들 */}
         <Stack direction="row" spacing={2} alignItems="center">
-          <Button variant="outlined" onClick={() => navigate(-1)}>취소</Button>
-          <Button variant="contained" onClick={handleSubmit}>작성완료</Button>
+          <Button variant="contained" onClick={() => navigate(-1)} style={{ 
+            backgroundColor: "#50e054ff"}}>취소</Button>
+          <Button variant="contained" onClick={handleSubmit} style={{ 
+            backgroundColor: "#4caf50"}}>작성완료</Button>
         </Stack>
       </Stack>
     </Box>

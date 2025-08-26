@@ -6,7 +6,6 @@ import RelayReviews from './components/RelayReviews.jsx';
 
 
 const Homepage = () => {
-  
   return (
         <div>
           <Banner />

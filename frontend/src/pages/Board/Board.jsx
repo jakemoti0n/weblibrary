@@ -5,7 +5,6 @@ import Pagination from '@mui/material/Pagination';
 import Paper from '@mui/material/Paper';
 import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
-import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
@@ -57,7 +56,7 @@ export default function Board() {
 
   const columns = [
     { field: 'id', headerName: 'ID', flex: 0.5, minWidth: 80, headerClassName: 'header-blue', align: 'center', headerAlign: 'center' },
-    { field: 'bookName', headerName: '도서정보', flex: 1.2, minWidth: 220, headerClassName: 'header-blue', headerAlign: 'center' },
+    { field: 'bookName', headerName: '도서정보', flex: 1.2, minWidth: 220, headerClassName: 'header-blue'},
     { field: 'title', headerName: '제목', flex: 3, minWidth: 400, headerClassName: 'header-blue', headerAlign: 'center', 
       renderCell: (params) => (
       <Link
@@ -123,7 +122,7 @@ export default function Board() {
       maxWidth={false}
       sx={{ maxWidth: 1600, mx: 'auto', px: 2, mt: 4 }} // ★ CHANGED: 컨테이너 최대폭 커스텀
     >
-      <Paper sx={{ p: 2 }}>
+      
         <h1 className="reviewHead">도서리뷰</h1>
 
         <DataGrid
@@ -142,7 +141,7 @@ export default function Board() {
           sx={{
             border: 0,
             "& .header-blue": {
-              backgroundColor: "#f0c4104a",
+              backgroundColor: "#faf6ef",
               color: "#333",
               fontWeight: "bold",
               fontFamily: "'KyoboHand', sans-serif",
@@ -153,7 +152,7 @@ export default function Board() {
             }
           }}
         />
-      </Paper>
+      
 
       {/* 하단 검색/글쓰기 바 - 컨테이너 하단 sticky */}
       <Box
@@ -192,7 +191,9 @@ export default function Board() {
           sx={{ width: 280 }}
         />
 
-        <Button variant="outlined" onClick={handleSearch}>
+        <Button variant="contained" onClick={handleSearch}
+        style={{ 
+            backgroundColor: "#50e054ff"}}>
           찾기
         </Button>
 
@@ -200,8 +201,9 @@ export default function Board() {
 
         <Button
           variant="contained"
-          color="inherit"
           component={Link}
+          style={{ 
+            backgroundColor: "#4caf50"}}
           to="/board/write"
         >
           글쓰기
