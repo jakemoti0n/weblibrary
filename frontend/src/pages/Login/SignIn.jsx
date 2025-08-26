@@ -3,16 +3,19 @@ import {
   Box, Paper, TextField, Button, Stack, Link, IconButton, InputAdornment,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { Link as RouterLink, useNavigate } from "react-router-dom";
+import { Link as RouterLink, useNavigate,useLocation } from "react-router-dom";
 import logo from "../../assets/booky.png";
 import useSignIn from "../../hooks/useSignIn";
 
 export default function SignIn() {
   const navigate = useNavigate();
-  const { mutate: signIn } = useSignIn({
+  const location = useLocation();
+  const redirectTo = location.state?.from || "/"; // 이전 페이지 or 홈
+
+  const { mutate: signIn, isPending } = useSignIn({
     onSuccess: () => {
       alert("로그인 성공!");
-      navigate("/");
+      navigate(redirectTo, { replace: true });
     },
     onError: (msg) => alert("로그인 실패: " + msg),
   });
@@ -30,7 +33,7 @@ export default function SignIn() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!canSubmit) return;
+    if (!canSubmit|| isPending) return;
     signIn({ username: values.username, password: values.pw });
   };
 

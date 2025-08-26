@@ -56,7 +56,7 @@ export default function Board() {
 
   const columns = [
     { field: 'id', headerName: 'ID', flex: 0.5, minWidth: 80, headerClassName: 'header-blue', align: 'center', headerAlign: 'center' },
-    { field: 'bookName', headerName: '도서정보', flex: 1.2, minWidth: 220, headerClassName: 'header-blue', headerAlign: 'center' },
+    { field: 'bookName', headerName: '도서정보', flex: 1.2, minWidth: 220, headerClassName: 'header-blue'},
     { field: 'title', headerName: '제목', flex: 3, minWidth: 400, headerClassName: 'header-blue', headerAlign: 'center', 
       renderCell: (params) => (
       <Link
@@ -141,7 +141,7 @@ export default function Board() {
           sx={{
             border: 0,
             "& .header-blue": {
-              backgroundColor: "#f0c4104a",
+              backgroundColor: "#faf6ef",
               color: "#333",
               fontWeight: "bold",
               fontFamily: "'KyoboHand', sans-serif",

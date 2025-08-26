@@ -3,16 +3,13 @@ import './App.css'
 import React, { useEffect } from "react";
 import {Routes,Route} from 'react-router-dom';
 import AppLayout from './layouts/AppLayout.jsx';
+import SubLayout from './layouts/SubLayout.jsx'; // 서브배너일단넣어둬 
 import Homepage from './pages/Home/Homepage.jsx';
 
 import SignIn from './pages/Login/SignIn.jsx';
 import SignUp from './pages/Login/SignUp.jsx';
 
 import BookDetail from './pages/Book/BookDetail.jsx';
-import BookListpage from './pages/Book/BookListpage.jsx';
-import BookRecom from './pages/Book/BookRecom.jsx';
-import BookEdit from './pages/Book/BookEdit.jsx';
-import BookView from './pages/Book/BookView.jsx'; // 내가 추가
 
 import Board from './pages/Board/Board.jsx';
 import BoardDetail from './pages/Board/BoardDetail.jsx';
@@ -24,6 +21,7 @@ import Mypage from './pages/Mypage/Mypage.jsx';
 import NotFound from './pages/NotFound/NotFound.jsx';
 
 import AOS from "aos";
+import SessionBootstrap from "./components/SessionBootstrap.jsx";
 
 
 function App() {
@@ -37,27 +35,36 @@ function App() {
 
   return (
     <div>
+      <SessionBootstrap />
       <Routes>
         <Route path="/" element={<AppLayout />}>
           <Route index element={<Homepage />}/>
           {/* 책 관련 라우트 */}
-          <Route path="books">
-            <Route index element={<BookListpage />} />
+          {/* <Route path="books">
             <Route path="id:" element={<BookDetail />} />
-            <Route path="recom" element={<BookRecom />} />
-            <Route path="edit" element={<BookEdit />} />
-            <Route path="view" element={<BookView />} /> {/* 내가추가 */}
-          </Route>
-         
+          </Route> */}
+        
           {/* 게시판 관련 라우트 */}
+          {/* <Route
+          element={
+            <SubLayout
+              banner={{
+                title: "게시판",
+                subtitle: "독서 소식을 공유하고 대화해 보세요",
+                bgImage: "/images/banner-board.jpg",
+              }}
+            />
+          }
+        > */}
           <Route path="board">
             <Route index element={<Board />} />
             <Route path=":id" element={<BoardDetail />} />
             <Route path="write" element={<BoardWrite />} />
             <Route path=":id/update" element={<BoardUpdate />} />
           </Route>
+        {/* </Route> */}
           {/* 마이페이지 관련 라우트 */}
-          <Route path="mypage" element={<Mypage />} />
+          {/* <Route path="mypage" element={<Mypage />} /> */}
         </Route>
          {/* 로그인 관련 라우트 */}
           <Route path="login">

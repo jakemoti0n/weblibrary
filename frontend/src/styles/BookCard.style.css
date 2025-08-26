@@ -14,7 +14,7 @@
 .book-face {
     position: absolute;
     inset: 0;
-    border-radius: 12px;
+    border-radius: 0;
     overflow: hidden;
     backface-visibility: hidden;
 }
