@@ -18,11 +18,11 @@ export default function BookView() {
 
   // 전체 페이지 데이터 생성
   const generatePagesData = () => {
-    const pages = [];
+    const editpages = [];
     
     // 0~13번 페이지: 기존 이미지들
     for (let i = 0; i <= 29; i++) {
-      pages.push({
+      editpages.push({
         image: `/images/books/page${i}.png`,
         text: i % 2 === 0 ? `페이지 ${i}의 텍스트 내용` : null
       });
@@ -30,20 +30,20 @@ export default function BookView() {
     
     // 14, 15번 페이지: 업로드된 이미지들
     if (uploadedImages[14]) {
-      pages.push({
+      editpages.push({
         image: uploadedImages[14],
         text: '30번 텍스트' 
       });
     }
     
     if (uploadedImages[14]) {
-      pages.push({
+      editpages.push({
         image: uploadedImages[14], 
         text: '32번 텍스트' 
       });
     }
     
-    return pages;
+    return editpages;
   };
 
   const handleBackToEdit = () => {
