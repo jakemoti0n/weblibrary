@@ -5,11 +5,10 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import '../../styles/BookRecom.css'
 import BookReader from "../../components/BookShelf/BookReader";
-import { useNavigate } from 'react-router';
+
 
 
 export default function BookRecom() {
-  const navigate = useNavigate()
   const sampleBook = [
     { image: "/images/book/page0.png" },
     { image: "/images/books/page1.png" },
