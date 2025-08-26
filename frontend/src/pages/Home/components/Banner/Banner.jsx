@@ -8,7 +8,7 @@ import img3 from "../../../../assets/images4.jpg";
 const images = [img1, img2, img3];
 
 const Banner = () => {
-  const navigate =useNavigate();
+  //const navigate =useNavigate();
   const [idx, setIdx] = useState(0);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const Banner = () => {
         position: "relative",
         width: "100%",
         height: { xs: 360, md: 560 },
-        backgroundImage: `url(${images[idx]})`, //`url(${img1})` -> 이미지 하나만하려면 
+        backgroundImage: `url(${images[idx]})`, 
         backgroundSize: "cover",
         backgroundPosition: "center",
         color: "#fff",
@@ -41,6 +41,7 @@ const Banner = () => {
         }}
       />
       <Container
+        data-aos="fade-up" data-aos-offset="120"
         maxWidth="lg"
         sx={{
           position: "relative",
@@ -55,6 +56,7 @@ const Banner = () => {
               color: "rgba(255,255,255,.85)",
               fontSize: { xs: 13, md: 14 },
               letterSpacing: ".08em",
+              fontFamily: "'STUNNING-Bd','KyoboHand',sans-serif", 
             }}
           >
             Shared Reading and Discussion
@@ -68,6 +70,8 @@ const Banner = () => {
               lineHeight: 1.25,
               fontWeight: 800,
               textShadow: "0 2px 18px rgba(0,0,0,.35)",
+              fontFamily: "'STUNNING-Bd','KyoboHand',sans-serif", 
+
             }}
           >
             {`아이와 함께 읽고 나누는\n 창작동화`}
@@ -80,6 +84,7 @@ const Banner = () => {
               color: "rgba(255,255,255,.9)",
               textShadow: "0 1px 12px rgba(0,0,0,.35)",
               maxWidth: 680,
+              fontFamily: "'STUNNING-Bd','KyoboHand',sans-serif", 
             }}
           >
             logogo를 통해 독서 모임과 리뷰를 나눠보세요.

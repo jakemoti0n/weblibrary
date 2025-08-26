@@ -1,29 +1,26 @@
 import { useMutation } from "@tanstack/react-query";
 import api from "../utils/api";
-import { useNavigate } from "react-router-dom";
 
-const signUp = async (formData) => {
-  const res = await api.post("/api/auth/signup", formData);
-  return res.data;
-};
 
-export default function useSignUp() {
-  const navigate = useNavigate();
-  return useMutation({ mutationFn: signUp ,
-    onSuccess: () => {
-      alert("회원가입 성공!");
-      navigate('/login', {replace:true});
+export default function useSignUp(opts = {}) {
+  const qc = useQueryClient();
+
+  return useMutation({
+    mutationKey: ["auth", "signup"],
+    mutationFn: async ({ username, password, email }) => {
+      const res = await api.post("/api/auth/signup", { username, password, email });
+      return res.data; // { userId, username }
     },
-    onError: (error) => {
-      if (error?.response?.status === 409) {
-        alert("이미 존재하는 아이디입니다.");
-      } else {
-        alert("에러 발생: " + (error.response?.data || error.message));
-      }
+    onSuccess: async (data) => {
+      await qc.invalidateQueries({ queryKey: ["auth", "me"] });
+      opts.onSuccess?.(data);
     },
-    //  무조건 실행됨 (성공/실패 상관없이)
-    onSettled: () => {
-      console.log("요청 종료됨");
+    onError: (err) => {
+      const msg =
+        err?.status === 409
+          ? err?.message || "이미 존재하는 계정 정보입니다."
+          : err?.message || "회원가입 실패";
+      opts.onError?.(msg);
     },
   });
 }

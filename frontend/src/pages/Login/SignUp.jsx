@@ -7,15 +7,23 @@ import {
   Stack,
   IconButton,
   InputAdornment,
-  Link
+  Link,
+  CircularProgress
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/booky.png";
 import useSignUp from "../../hooks/useSignUp";
 
 export default function SignUp() {
-  const { mutate: signUp } = useSignUp();
+  const navigate = useNavigate();
+  const { mutate: signUp, isPending } = useSignUp({
+    onSuccess: () => {
+      alert("회원가입 성공! 로그인 해주세요.");
+      navigate("/login", { replace: true });
+    },
+    onError: (msg) => alert(msg || "회원가입 실패"),
+  });
   const [form, setForm] = useState({
     username: "",
     email: "",
@@ -46,16 +54,13 @@ export default function SignUp() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!canSubmit) return;
-
-    const payload = {
-      username: form.username,
-      password: form.pw,
-      email: form.email,
+    if (!canSubmit || isPending) return;
+    signUp({ username: form.username, password: form.pw, email: form.email });
     };
 
-    // 회원가입 API 호출
-    signUp(payload);
+    const inputProps = {
+    disableUnderline: true,
+    sx: { bgcolor: "#f1f3f5", borderRadius: 1, "&:hover": { bgcolor: "#eef0f2" }, minHeight: 48 },
   };
 
   return (
