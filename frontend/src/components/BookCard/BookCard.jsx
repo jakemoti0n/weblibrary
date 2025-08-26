@@ -2,33 +2,31 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import '../../styles/BookCard.style.css'
 
-const NO_IMAGE = `${import.meta.env.BASE_URL || ""}noimg.png`;
 
 export default function BookCard({ book }) {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const cover = book?.cover || NO_IMAGE;
+  const cover = book?.cover;
   const title = book?.title || "제목 없음";
   const author = book?.author || "작자 미상";
 
-  const goToDetail = () => {
-    navigate(`/books/${book.itemId}`);
-  }
+  // const goToDetail = () => {
+  //   navigate(`/books/${book.itemId}`);
+  // }
 
   return (
     <div
       className="book-card"
-      onClick={goToDetail}
-      role="button"
+      //onClick={goToDetail}
+      //role="button"
       tabIndex={0}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          goToDetail();
-          
-        }
-      }}
-      aria-label={`${title} 상세 보기`}
+      // onKeyDown={(e) => {
+      //   if (e.key === "Enter" || e.key === " ") {
+      //     e.preventDefault();
+      //     goToDetail();   
+        // }
+      // }}
+      //aria-label={`${title} 상세 보기`}
     >
       <div className="book-inner">
         <div className="book-face book-front">

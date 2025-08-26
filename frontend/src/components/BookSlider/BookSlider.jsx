@@ -4,10 +4,16 @@ import 'react-multi-carousel/lib/styles.css';
 import BookCard from '../BookCard/BookCard';
 import '../../styles/BookSlider.style.css'
 
-const BookSlider = ({ title, books, responsive }) => {
+const BookSlider = ({
+  title,
+  books,
+  responsive,
+  enableAutoPlay = false,
+  fullBleed = false, 
+}) => {
   return (
-    <section className='section'>
-      <div className="page-container"> 
+    <section className={`section ${fullBleed ? 'full-bleed' : ''}`}>
+      <div className="page-container">
         <div className="main-bestslider">
           {title && <h3 className="main-bestname">{title}</h3>}
 
@@ -15,14 +21,13 @@ const BookSlider = ({ title, books, responsive }) => {
             responsive={responsive}
             centerMode={false}           
             partialVisible={false}
-            swipeable
-            draggable
             infinite={true} 
-            arrows
-            autoPlay
+            arrows={false}
+            autoPlay={enableAutoPlay}
             autoPlaySpeed={3000}
             slidesToSlide={1}            
             containerClass="carousel-container"
+            sliderClass="carousel-track"
             itemClass="book-slider"      
             removeArrowOnDeviceType={['mobile']}
           >

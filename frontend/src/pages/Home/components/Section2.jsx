@@ -22,6 +22,7 @@ export default function Section2() {
             fontSize: { xs: 26, sm: 32, md: 34 },
             color: green,
             mb: 1.5,
+            fontFamily: "'STUNNING-Bd','KyoboHand',sans-serif", 
           }}
           data-aos="fade-up"
         >
@@ -34,6 +35,7 @@ export default function Section2() {
             fontSize: { xs: 13.5, sm: 15 },
             color: "rgba(0,0,0,.65)",
             mb: 3,
+            fontFamily: "'STUNNING-Bd','KyoboHand',sans-serif", 
           }}
           data-aos="fade-up"
         >
@@ -50,6 +52,7 @@ export default function Section2() {
             borderColor: green,
             color: green,
             fontWeight: 700,
+            fontFamily: "'STUNNING-Bd','KyoboHand',sans-serif", 
             "&:hover": {
               borderColor: "#14520fff",
               bgcolor: "rgba(232,92,47,.06)",

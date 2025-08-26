@@ -46,6 +46,7 @@ export default function BookEdit() { // props 제거
           const handleDragOver = (e) => e.preventDefault();
           const handleDrop = (e) => {
             e.preventDefault()
+            e.stopPropagation();
             const file = e.dataTransfer.files[0];
             handleUpload(i, file);
           };
