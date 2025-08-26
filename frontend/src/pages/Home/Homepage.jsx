@@ -1,10 +1,8 @@
 import React from 'react'
 import Banner from './components/Banner/Banner.jsx';
-import BestSeller from './components/Bestseller/Bestseller.jsx';
-import NewBook from './components/new/NewBook.jsx';
 import Section2 from './components/Section2.jsx';
 import RecoBooks from './components/RecoBooks.jsx';
-
+import RelayReviews from './components/RelayReviews.jsx';
 
 
 const Homepage = () => {
@@ -13,9 +11,8 @@ const Homepage = () => {
         <div>
           <Banner />
           <Section2 />
-          <RecoBooks />
-          <NewBook />
-          <BestSeller />      
+          <RecoBooks />  
+          <RelayReviews />
         </div>
   )
 }
