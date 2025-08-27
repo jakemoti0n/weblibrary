@@ -14,6 +14,7 @@ import boardBanner from "../../assets/recommend.png";
 
 
 export default function BookRecom() {
+  const navigate = useNavigate
   const sampleBook = [
     { image: "/images/books/page0.png" },
     { image: "/images/books/page1.png" },
@@ -86,8 +87,14 @@ export default function BookRecom() {
       setPages(defaultPage); // 다른 책이면 초기화하거나 원하는 내용
     }
     };
+<<<<<<< HEAD
     
 
+=======
+const handleEditEnding = () => {
+    navigate("./edit");
+ };
+>>>>>>> 1d03c67 (s)
   return (
     <>
     {/* 배너는 전체폭 */}

@@ -111,6 +111,8 @@ export default function BookView() {
       </div>
       
       <BookReader pages={generatePagesData()} />
+      <Stack></Stack>
+      <Stack></Stack>
     </div>
   );
 }
