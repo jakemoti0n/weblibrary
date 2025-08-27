@@ -64,12 +64,18 @@ export default function BookRecom() {
 
   const defaultPage = [
     { image: "/images/books/page00.png" }
+    
   ];
 
   // ✅ 상태: 현재 보여줄 페이지
   const [pages, setPages] = useState(defaultPage);
 
   const [selectedBook, setSelectedBook] = useState(null);
+  const navigate=useNavigate()
+
+  const handleEditEnding = () => {
+    navigate("./edit");
+  };
 
   // ✅ BookShelf에서 특정 책 선택 시 실행할 함수
   const handleSelectBook = (bookId) => {
@@ -80,6 +86,7 @@ export default function BookRecom() {
       setPages(defaultPage); // 다른 책이면 초기화하거나 원하는 내용
     }
     };
+    
 
   return (
     <>
@@ -170,9 +177,6 @@ export default function BookRecom() {
             결말 바꾸기
           </Button>
         </Box>
-      <Stack sx={{ mb: 20, display: "flex", justifyContent: "center" }}>
-        <BookReader pages={pages} />
-      </Stack>
     </Container>
     </>
   );
