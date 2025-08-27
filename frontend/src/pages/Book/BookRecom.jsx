@@ -54,7 +54,7 @@ export default function BookRecom() {
     { image: "/images/books/page27.png" },
     { text: "별주부는 속았음을 깨닫고 주저앉아 울었어요. 토끼는 멀리 달아났고, 간을 구하지 못해 용왕님의 병은 낫지 못할 터. 별주부는 큰 벌을 두려워하며 눈물을 흘렸답니다." },
     
-    { image: "/images/books/page27.png"},
+    { image: "/images/books/page29.png"},
     { type:'ending', text: "내가 결말 바꿔보기!" },
   ];
 
