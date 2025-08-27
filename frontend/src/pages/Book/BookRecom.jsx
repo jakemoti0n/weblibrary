@@ -5,12 +5,13 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import '../../styles/BookRecom.css'
 import BookReader from "../../components/BookShelf/BookReader";
-
+import { useNavigate } from "react-router-dom";
+import Button from '@mui/material/Button';
 
 
 export default function BookRecom() {
   const sampleBook = [
-    { image: "/images/book/page0.png" },
+    { image: "/images/books/page0.png" },
     { image: "/images/books/page1.png" },
     { text: "푸른 바다의 용궁에 큰 걱정거리가 생겼어요. 용왕님이 배앓이로 끙끙 앓자, 의사 물고기들이 “토끼의 간을 먹으면 낫는다”라 말했답니다. 용왕님은 별주부에게 토끼를 데려오라 명했어요." },
 
@@ -52,23 +53,27 @@ export default function BookRecom() {
 
     { image: "/images/books/page27.png" },
     { text: "별주부는 속았음을 깨닫고 주저앉아 울었어요. 토끼는 멀리 달아났고, 간을 구하지 못해 용왕님의 병은 낫지 못할 터. 별주부는 큰 벌을 두려워하며 눈물을 흘렸답니다." },
-  
-    { text: "내가 결말 바꿔보기!" },
+    
+    { image: "/images/books/page27.png"},
+    { type:'ending', text: "내가 결말 바꿔보기!" },
   ];
 
   const defaultPage = [
-    { text: '📚 책 선반에서 원하는 책을 선택하세요!' }
+    { image: "/images/books/page00.png" }
   ];
 
   // ✅ 상태: 현재 보여줄 페이지
   const [pages, setPages] = useState(defaultPage);
-
+  const navigate = useNavigate();
   // ✅ BookShelf에서 특정 책 선택 시 실행할 함수
   const handleSelectBook = (bookId) => {
-    if (bookId === 4) { // 🐰토끼 간은 어디로 갔을까
+    if (bookId === 4) {
       setPages(sampleBook);
     }
   };
+ const handleEditEnding = () => {
+    navigate("./edit");
+ };
 
   return (
     <Container maxWidth="80%" className="bodyy">
@@ -76,6 +81,7 @@ export default function BookRecom() {
         <Typography
           variant="h5"
           sx={{
+            paddingTop : 5,
             color: "#69681aff",
             fontWeight: "bold",
             fontFamily: "'KyoboHand', cursive",
@@ -91,14 +97,24 @@ export default function BookRecom() {
       </Box>
 
       {/* BookReader → 현재 상태에 따라 defaultPage or sampleBook 보여줌 */}
-      <Stack sx={{ mt: 8, mb: 20, display: "flex", justifyContent: "center" }}>
+      <Stack sx={{ mt: 8, mb :8, display: "flex", justifyContent: "center" }}>
         <BookReader pages={pages} />
       </Stack>
-      <Stack>
-    
-      </Stack>
+
+      
+      {/*  결말바꾸기 버튼 */}
          
+        <Box sx={{mb: 10, textAlign: "center" }}>
+          <Button
+            variant="contained"
+            color="success"
+            onClick={handleEditEnding}
+            sx={{ px: 7, py: 2, fontWeight: "bold", fontSize: 20, fontFamily: 'KyoboHand' }}
+          >
+            결말 바꾸기
+          </Button>
+        </Box>
+      <Stack></Stack>
     </Container>
-    
-  );
+   );
 }
