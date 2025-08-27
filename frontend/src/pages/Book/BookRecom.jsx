@@ -72,11 +72,7 @@ export default function BookRecom() {
   const [pages, setPages] = useState(defaultPage);
 
   const [selectedBook, setSelectedBook] = useState(null);
-  const navigate=useNavigate()
 
-  const handleEditEnding = () => {
-    navigate("./edit");
-  };
 
   // ✅ BookShelf에서 특정 책 선택 시 실행할 함수
   const handleSelectBook = (bookId) => {
@@ -87,14 +83,9 @@ export default function BookRecom() {
       setPages(defaultPage); // 다른 책이면 초기화하거나 원하는 내용
     }
     };
-<<<<<<< HEAD
-    
-
-=======
 const handleEditEnding = () => {
     navigate("./edit");
  };
->>>>>>> 1d03c67 (s)
   return (
     <>
     {/* 배너는 전체폭 */}
