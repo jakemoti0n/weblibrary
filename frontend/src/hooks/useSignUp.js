@@ -1,6 +1,5 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient} from "@tanstack/react-query";
 import api from "../utils/api";
-
 
 export default function useSignUp(opts = {}) {
   const qc = useQueryClient();
@@ -12,7 +11,7 @@ export default function useSignUp(opts = {}) {
       return res.data; // { userId, username }
     },
     onSuccess: async (data) => {
-      await qc.invalidateQueries({ queryKey: ["auth", "me"] });
+      // await qc.invalidateQueries({ queryKey: ["auth", "me"] });
       opts.onSuccess?.(data);
     },
     onError: (err) => {

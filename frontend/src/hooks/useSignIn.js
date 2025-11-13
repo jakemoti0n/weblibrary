@@ -26,3 +26,14 @@ export default function useSignIn(opts = {}) {
     },
   });
 }
+
+// {
+//   mutate,          // 실제로 요청을 실행하는 함수
+//   mutateAsync,     // Promise 기반으로 실행하는 함수
+//   isPending,       // 요청 중인지 여부
+//   isSuccess,       // 성공 여부
+//   isError,         // 실패 여부
+//   data,            // 결과 데이터
+//   error,           // 에러 정보
+//   ...
+// }

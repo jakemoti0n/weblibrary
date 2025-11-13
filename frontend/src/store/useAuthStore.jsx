@@ -6,7 +6,7 @@ export const useAuthStore = create(
     (set, get) => ({
       user: null,                      // { userId, username } 또는 null
       setUser: (user) => set({ user }),
-      clear: () => set({ user: null }),
+      clear: () => set({ user: null }), //로그아웃 여부
       isAuthed: () => !!get().user,    // 파생 상태(로그인 여부)
     }),
     {

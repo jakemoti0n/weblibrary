@@ -75,7 +75,7 @@ function App() {
           
         </Route>
           {/* 마이페이지 관련 라우트 */}
-          <Route path="mypage" element={<Mypage />} />
+          {/* <Route path="mypage" element={<Mypage />} /> */}
         {/* </Route> */}
          {/* 로그인 관련 라우트 */}
           <Route path="login">

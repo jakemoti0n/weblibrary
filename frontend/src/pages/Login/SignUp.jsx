@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from "react";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import {
   Box,
   Paper,
@@ -12,7 +13,7 @@ import {
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
-import logo from "../../assets/booky.png";
+import logo from "../../assets/logo.png";
 import useSignUp from "../../hooks/useSignUp";
 
 export default function SignUp() {
@@ -87,11 +88,7 @@ export default function SignUp() {
         {/* 로고 */}
         <Box sx={{ textAlign: "center", mb: 3 }}>
           <Link component={RouterLink} to="/" underline="none">
-            <img
-              src={logo}
-              alt="logo"
-              style={{ maxWidth: "200px", height: "auto", cursor: "pointer" }}
-            />
+            <img src={logo} alt="logo" style={{ maxWidth: "200px", height: "auto", cursor: "pointer" }} />
           </Link>
         </Box>
 
