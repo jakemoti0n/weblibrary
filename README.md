@@ -22,9 +22,13 @@
 온라인 도서 관람/결말 수정해보기
 리뷰/게시판 기능
 
+기술스택
+
 | 구분 | 내용 |
 | :--- | :--- |
 | **사용 언어** | ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) |
 | **프레임워크** | ![Spring Boot](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) |
-| **라이브러리 / API** | ![Aladdin API](https://img.shields.io/badge/Aladdin_API-0054A6?style=for-the-badge) |
-| **데이터베이스** | ![Oracle](https://img.shields.io/
+| **개발 및 빌드** | ![VS Code](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=for-the-badge&logo=Visual%20Studio%20Code&logoColor=white) ![Gradle](https://img.shields.io/badge/Gradle-02303A.svg?style=for-the-badge&logo=Gradle&logoColor=white) ![Node.js](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) |
+| **실행 환경** | ![JDK 17](https://img.shields.io/badge/JDK_17-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white) ![JVM](https://img.shields.io/badge/JVM-007396?style=for-the-badge&logo=java&logoColor=white) |
+| **데이터베이스** | ![Oracle](https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white) |
+| **API** | ![Aladdin API](https://img.shields.io/badge/Aladdin_API-0054A6?style=for-the-badge) |
