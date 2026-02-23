@@ -50,7 +50,7 @@
 | :---: | :---: | :---: |
 | **김태준** | **이민지** | **모준영** |
 | Frontend | Frontend | Backend |
-| [![github](https://img.shields.io/badge/github-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/깃허브ID) | [![github](https://img.shields.io/badge/github-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/깃허브ID) | [![github](https://img.shields.io/badge/github-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/깃허브ID) |
+| [![github](https://img.shields.io/badge/github-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/jakemoti0n) | [![github](https://img.shields.io/badge/github-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/깃허브ID) | [![github](https://img.shields.io/badge/github-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/깃허브ID) |
 
 트러블슈팅
 개념: 추후 작성
