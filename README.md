@@ -31,7 +31,7 @@
 | **프레임워크** | ![Spring Boot](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) |
 | **개발 및 빌드** | ![VS Code](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=for-the-badge&logo=Visual%20Studio%20Code&logoColor=white) ![Gradle](https://img.shields.io/badge/Gradle-02303A.svg?style=for-the-badge&logo=Gradle&logoColor=white) ![Node.js](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) |
 | **실행 환경** | ![JDK 17](https://img.shields.io/badge/JDK_17-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white) ![JVM](https://img.shields.io/badge/JVM-007396?style=for-the-badge&logo=java&logoColor=white) |
-| **데이터베이스** | ![Oracle](https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white) |
+| **데이터베이스** | ![Oracle](https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white) ![ChromaDB](https://img.shields.io/badge/ChromaDB-5233EA?style=for-the-badge&logo=databricks&logoColor=white) ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white) |
 | **API** | ![Aladdin API](https://img.shields.io/badge/Aladdin_API-0054A6?style=for-the-badge) |
 
 
