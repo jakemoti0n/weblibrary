@@ -35,15 +35,13 @@
 | **API** | ![Aladdin API](https://img.shields.io/badge/Aladdin_API-0054A6?style=for-the-badge) |
 
 
+
+[1조_티니핑이 되고싶은 나이.pdf](https://github.com/user-attachments/files/26597908/1._.pdf)
+
  시스템 아키텍처(구조) 예시
- 추후작성
-
  SW유스케이스
- 추후작성
-
  서비스 흐름도
- 추후작성
-
+ 
  팀원 소개 (Team Members)
 
 | <img src="이미지주소" width="100"> | <img src="이미지주소" width="100"> | <img src="이미지주소" width="100"> |
