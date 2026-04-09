@@ -35,8 +35,21 @@
 | **API** | ![Aladdin API](https://img.shields.io/badge/Aladdin_API-0054A6?style=for-the-badge) |
 
 
+기능정의 
+<img width="952" height="525" alt="기능정희1" src="https://github.com/user-attachments/assets/797a2d36-4e56-4127-92dd-9ba007b26fc3" />
+<img width="953" height="528" alt="기능정의3" src="https://github.com/user-attachments/assets/6c828272-6301-4bee-8311-101ed75cc2b4" />
+<img width="947" height="526" alt="기능정의2" src="https://github.com/user-attachments/assets/32efaa03-4115-42da-b598-14e349977a92" />
 
-[1조_티니핑이 되고싶은 나이.pdf](https://github.com/user-attachments/files/26597908/1._.pdf)
+URL 다이어그램
+<img width="950" height="534" alt="URL다이어그램" src="https://github.com/user-attachments/assets/ee61ec6e-cf2c-4b71-9f03-94daf4e72650" />
+
+
+
+DB 설계
+<img width="950" height="534" alt="DB설계1" src="https://github.com/user-attachments/assets/0f797569-d1c1-4702-b36a-74187737909d" />
+<img width="950" height="534" alt="DB설계2" src="https://github.com/user-attachments/assets/c6a05bb0-224e-4338-9325-0a7a6f5a1511" />
+
+
 
  시스템 아키텍처(구조) 예시
  SW유스케이스
