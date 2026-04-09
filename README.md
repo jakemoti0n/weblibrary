@@ -20,30 +20,31 @@
 
 <img width="1500" height="800" alt="image" src="https://github.com/user-attachments/assets/7f567753-5b67-45e2-baa1-bfbd1a35bb6d" />
 
-<img width="1821" height="882" alt="image" src="https://github.com/user-attachments/assets/e153f171-cbb9-429f-a214-dc30c6e6488a" />
+<img width="1500" height="800" alt="image" src="https://github.com/user-attachments/assets/e153f171-cbb9-429f-a214-dc30c6e6488a" />
 
-<img width="1494" height="846" alt="image" src="https://github.com/user-attachments/assets/ed21b756-6195-491f-bce1-ace968a05b87" />
+<img width="1500" height="800" alt="image" src="https://github.com/user-attachments/assets/ed21b756-6195-491f-bce1-ace968a05b87" />
 
 
 
 ### 기능정의 
 
 <img width="952" height="525" alt="기능정희1" src="https://github.com/user-attachments/assets/797a2d36-4e56-4127-92dd-9ba007b26fc3" />
-<img width="953" height="528" alt="기능정의3" src="https://github.com/user-attachments/assets/6c828272-6301-4bee-8311-101ed75cc2b4" />
-<img width="947" height="526" alt="기능정의2" src="https://github.com/user-attachments/assets/32efaa03-4115-42da-b598-14e349977a92" />
+<img width="947" height="525" alt="기능정의2" src="https://github.com/user-attachments/assets/32efaa03-4115-42da-b598-14e349977a92" />
+<img width="953" height="525" alt="기능정의3" src="https://github.com/user-attachments/assets/6c828272-6301-4bee-8311-101ed75cc2b4" />
 
 
 
 ### URL 다이어그램
 
-<img width="950" height="528" alt="ULM" src="https://github.com/user-attachments/assets/eec5f5b5-fe4c-4170-bdfb-52d713e513fb" />
+<img width="950" height="525" alt="ULM" src="https://github.com/user-attachments/assets/eec5f5b5-fe4c-4170-bdfb-52d713e513fb" />
 
 
 
 ### DB 설계
 
-<img width="950" height="534" alt="DB설계1" src="https://github.com/user-attachments/assets/0f797569-d1c1-4702-b36a-74187737909d" />
-<img width="950" height="534" alt="DB설계2" src="https://github.com/user-attachments/assets/c6a05bb0-224e-4338-9325-0a7a6f5a1511" />
+<img width="950" height="525" alt="DB설계1" src="https://github.com/user-attachments/assets/0f797569-d1c1-4702-b36a-74187737909d" />
+<img width="950" height="525" alt="image" src="https://github.com/user-attachments/assets/d8919497-65c2-4198-88be-5c43edd3c59e" />
+
 
 
 
