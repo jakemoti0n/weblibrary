@@ -1,7 +1,17 @@
-서비스명 : BooKids
-서비스설명: 추천/알고리즘 기반 아동 도서/동화 추천 웹/앱 도서관
+# 서비스명 : BooKids
+### 서비스설명: 추천/알고리즘 기반 아동 도서/동화 추천 웹/앱 도서관
+주요 기능
+추천 알고리즘 기반 도서추천
+온라인 도서 관람/결말 수정해보기
+리뷰/게시판 기능
 
-화면 구성
+프로젝트 기간
+2025.08.11 ~ 2024.08.22 (2주)
+
+
+
+### 화면 구성
+
 <img width="1500" height="800" alt="image" src="https://github.com/user-attachments/assets/5382d81e-2377-42c4-ab0a-b4536f86271e" />
 
 <img width="1500" height="800" alt="image" src="https://github.com/user-attachments/assets/ef04f300-9fcb-4a7e-bd97-94b98b130918" />
@@ -15,15 +25,33 @@
 <img width="1494" height="846" alt="image" src="https://github.com/user-attachments/assets/ed21b756-6195-491f-bce1-ace968a05b87" />
 
 
-프로젝트 기간
-2025.08.11 ~ 2024.08.22 (2주)
 
-주요 기능
-추천 알고리즘 기반 도서추천
-온라인 도서 관람/결말 수정해보기
-리뷰/게시판 기능
+### 기능정의 
 
-기술스택
+<img width="952" height="525" alt="기능정희1" src="https://github.com/user-attachments/assets/797a2d36-4e56-4127-92dd-9ba007b26fc3" />
+<img width="953" height="528" alt="기능정의3" src="https://github.com/user-attachments/assets/6c828272-6301-4bee-8311-101ed75cc2b4" />
+<img width="947" height="526" alt="기능정의2" src="https://github.com/user-attachments/assets/32efaa03-4115-42da-b598-14e349977a92" />
+
+
+
+### URL 다이어그램
+
+<img width="950" height="528" alt="ULM" src="https://github.com/user-attachments/assets/eec5f5b5-fe4c-4170-bdfb-52d713e513fb" />
+
+
+
+### DB 설계
+
+<img width="950" height="534" alt="DB설계1" src="https://github.com/user-attachments/assets/0f797569-d1c1-4702-b36a-74187737909d" />
+<img width="950" height="534" alt="DB설계2" src="https://github.com/user-attachments/assets/c6a05bb0-224e-4338-9325-0a7a6f5a1511" />
+
+
+
+ 시스템 아키텍처(구조) 예시
+ SW유스케이스
+ 서비스 흐름도
+
+### 기술스택
 
 | 구분 | 내용 |
 | :--- | :--- |
@@ -35,27 +63,8 @@
 | **API** | ![Aladdin API](https://img.shields.io/badge/Aladdin_API-0054A6?style=for-the-badge) |
 
 
-기능정의 
-<img width="952" height="525" alt="기능정희1" src="https://github.com/user-attachments/assets/797a2d36-4e56-4127-92dd-9ba007b26fc3" />
-<img width="953" height="528" alt="기능정의3" src="https://github.com/user-attachments/assets/6c828272-6301-4bee-8311-101ed75cc2b4" />
-<img width="947" height="526" alt="기능정의2" src="https://github.com/user-attachments/assets/32efaa03-4115-42da-b598-14e349977a92" />
-
-URL 다이어그램
-<img width="950" height="534" alt="URL다이어그램" src="https://github.com/user-attachments/assets/ee61ec6e-cf2c-4b71-9f03-94daf4e72650" />
-
-
-
-DB 설계
-<img width="950" height="534" alt="DB설계1" src="https://github.com/user-attachments/assets/0f797569-d1c1-4702-b36a-74187737909d" />
-<img width="950" height="534" alt="DB설계2" src="https://github.com/user-attachments/assets/c6a05bb0-224e-4338-9325-0a7a6f5a1511" />
-
-
-
- 시스템 아키텍처(구조) 예시
- SW유스케이스
- 서비스 흐름도
  
- 팀원 소개 (Team Members)
+### 팀원 소개
 
 | <img src="이미지주소" width="100"> | <img src="이미지주소" width="100"> | <img src="이미지주소" width="100"> |
 | :---: | :---: | :---: |
@@ -63,8 +72,14 @@ DB 설계
 | Frontend | Frontend | Backend |
 | [![github](https://img.shields.io/badge/github-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/jakemoti0n) | [![github](https://img.shields.io/badge/github-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/깃허브ID) | [![github](https://img.shields.io/badge/github-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/깃허브ID) |
 
-트러블슈팅
-개념: 추후 작성
 
-문제 : 추후 작성
+
+###  트러블슈팅 및 로드맵 
+
+| 항목 | 내용 |
+| :--- | :--- |
+| **당초 목표** | **AI 기반의 결말 생성 기능 구현** <br> 사용자가 입력한 키워드를 바탕으로 AI가 새로운 결말 텍스트와 삽화 이미지를 자동으로 생성하는 아키텍처 설계 |
+| **현재 상황** | **사용자 직접 수정 방식 (수동 구현)** <br> 한정된 개발 기간 내에 모델 서빙 환경(FastAPI) 구축에 제약이 있어, 사용자가 직접 사진을 업로드하고 내용을 작성하는 참여형 방식으로 우선 구현 |
+| **해결 방법** | 서비스 런칭 안정성을 위해 기능의 본질인 '결말 바꾸기'를 유지하되, **AI 자동 생성 대신 사용자 직접 편집 인터페이스**를 최적화하여 제공 |
+| **향후 계획** | **AI 기반 자동화 업데이트 예정** <br> Langchain 및 모델 서빙 서버를 연동하여 '키워드 입력만으로 결말이 완성되는 AI 동화 엔진'으로 고도화할 계획 |
  
